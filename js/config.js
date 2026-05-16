@@ -622,6 +622,8 @@ window.SITE_CONFIG = {
 
     legacyReplace: {
         companyNames: [
+            "Paneli",
+            "Paneli Provider Matching LLC",
             "Old Company",
             "Your Company",
             "Company Name",
@@ -632,16 +634,21 @@ window.SITE_CONFIG = {
             "Garvox"
         ],
         phones: [
+            "(888) 555-0186",
+            "+18885550186",
             "(000) 000-0000",
             "(888) 555-0100",
             "(888) 555-0198"
         ],
         emails: [
+            "hello@paneli.example",
             "email@example.com",
             "hello@example.com",
             "hello@kavera.example"
         ],
         addresses: [
+            "2184 W Cedar Frame Ave",
+            "2184 W Cedar Frame Ave, Denver, CO 80202, USA",
             "123 Main Street, USA",
             "2148 W Maple Studio Ave",
             "2148 W Maple Studio Ave, Denver, CO 80202, USA"

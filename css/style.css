@@ -2905,7 +2905,7 @@ article:hover [class*="-row__number"] {
     font-family: var(--font-main) !important;
 }
 
-/* SERVICES FAQ */
+
 .services-faq .faq-button__number {
     font-family: var(--font-main) !important;
     font-size: 0.82rem;
@@ -2927,7 +2927,7 @@ article:hover [class*="-row__number"] {
     line-height: 1.58;
 }
 
-/* PROVIDER FIT */
+
 .provider-fit h2,
 .provider-fit h3,
 .provider-fit p,
@@ -2947,7 +2947,7 @@ article:hover [class*="-row__number"] {
     letter-spacing: -0.04em;
 }
 
-/* MATERIAL MOOD */
+
 .material-mood__top span,
 .material-mood__top p,
 .material-panel h3,

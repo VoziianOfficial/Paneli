@@ -10,31 +10,33 @@
 
     document.addEventListener("DOMContentLoaded", initSite);
 
-    function initSite() {
-        applyPageMeta();
+  function initSite() {
+    normalizeConfigContent();
 
-        renderHeader();
-        renderFooter();
+    applyPageMeta();
 
-        injectDynamicContent();
-        replaceLegacySiteData();
+    renderHeader();
+    renderFooter();
 
-        renderServiceCards();
-        renderFaqBlocks();
-        renderFaqSchema();
-        renderPolicyBanner();
+    renderServiceCards();
+    renderFaqBlocks();
+    renderFaqSchema();
+    renderPolicyBanner();
 
-        initHeaderScroll();
-        initServicesDropdown();
-        initMobileMenu();
-        initFaqAccordions();
-        initForms();
-        initSmoothAnchors();
-        initCurrentYear();
-        preventEmptyLinks();
+    injectDynamicContent();
+    replaceLegacySiteData();
 
-        document.documentElement.classList.add("site-ready");
-    }
+    initHeaderScroll();
+    initServicesDropdown();
+    initMobileMenu();
+    initFaqAccordions();
+    initForms();
+    initSmoothAnchors();
+    initCurrentYear();
+    preventEmptyLinks();
+
+    document.documentElement.classList.add("site-ready");
+  }
 
     
 
@@ -574,19 +576,126 @@
 
     
 
-    function injectDynamicContent() {
-        setText("[data-company-name]", config.companyName);
-        setText("[data-company-id]", config.companyId);
-        setText("[data-phone-text]", config.phone.number);
-        setText("[data-email-text]", config.email.value);
-        setText("[data-address-text]", config.address.full);
-        setText("[data-footer-text]", config.footerText);
-        setText("[data-service-area]", config.serviceArea);
-        setText("[data-disclaimer]", config.disclaimer);
-        setText("[data-legal-notice]", config.legalNotice);
+    /* ==================================================
+       CONFIG CONTENT INJECTION / GLOBAL REPLACEMENT
+    ================================================== */
 
-        setHref("[data-phone-link]", config.phone.href);
-        setHref("[data-email-link]", config.email.href);
+    function getConfigValue(path) {
+        return String(path || "")
+            .split(".")
+            .reduce((current, key) => {
+                if (current && Object.prototype.hasOwnProperty.call(current, key)) {
+                    return current[key];
+                }
+
+                return "";
+            }, config);
+    }
+
+    function normalizeConfigContent() {
+        const replacements = getReplacementPairs();
+
+        replaceInObject(config, replacements);
+    }
+
+    function replaceInObject(target, replacements) {
+        if (!target || typeof target !== "object") return;
+
+        Object.keys(target).forEach((key) => {
+            if (key === "legacyReplace") return;
+
+            const value = target[key];
+
+            if (typeof value === "string") {
+                target[key] = replaceTextValue(value, replacements);
+                return;
+            }
+
+            if (Array.isArray(value)) {
+                value.forEach((item, index) => {
+                    if (typeof item === "string") {
+                        value[index] = replaceTextValue(item, replacements);
+                        return;
+                    }
+
+                    replaceInObject(item, replacements);
+                });
+
+                return;
+            }
+
+            if (value && typeof value === "object") {
+                replaceInObject(value, replacements);
+            }
+        });
+    }
+
+    function injectDynamicContent() {
+        const brandName = config.companyName || "";
+        const companyId = config.companyId || "";
+        const phoneNumber = config.phone?.number || "";
+        const phoneHref = config.phone?.href || "";
+        const emailValue = config.email?.value || "";
+        const emailHref = config.email?.href || "";
+        const addressFull = config.address?.full || "";
+
+        const textMap = {
+            "[data-company-name]": brandName,
+            "[data-brand-name]": brandName,
+            "[data-company-id]": companyId,
+            "[data-phone-text]": phoneNumber,
+            "[data-email-text]": emailValue,
+            "[data-address-text]": addressFull,
+            "[data-footer-text]": config.footerText || "",
+            "[data-service-area]": config.serviceArea || "",
+            "[data-disclaimer]": config.disclaimer || "",
+            "[data-legal-notice]": config.legalNotice || "",
+            "[data-brand-tagline]": config.brand?.tagline || "",
+            "[data-brand-secondary-tagline]": config.brand?.secondaryTagline || ""
+        };
+
+        Object.entries(textMap).forEach(([selector, value]) => {
+            setText(selector, value);
+        });
+
+        setHref("[data-phone-link]", phoneHref);
+        setHref("[data-email-link]", emailHref);
+
+        document.querySelectorAll("[data-config]").forEach((element) => {
+            const path = element.dataset.config;
+            const value = getConfigValue(path);
+
+            if (value !== undefined && value !== null) {
+                element.textContent = value;
+            }
+        });
+
+        document.querySelectorAll("[data-config-href]").forEach((element) => {
+            const path = element.dataset.configHref;
+            const value = getConfigValue(path);
+
+            if (value) {
+                element.setAttribute("href", value);
+            }
+        });
+
+        document.querySelectorAll("[data-config-aria-label]").forEach((element) => {
+            const path = element.dataset.configAriaLabel;
+            const value = getConfigValue(path);
+
+            if (value) {
+                element.setAttribute("aria-label", value);
+            }
+        });
+
+        document.querySelectorAll("[data-config-placeholder]").forEach((element) => {
+            const path = element.dataset.configPlaceholder;
+            const value = getConfigValue(path);
+
+            if (value) {
+                element.setAttribute("placeholder", value);
+            }
+        });
     }
 
     function setText(selector, value) {
@@ -602,38 +711,65 @@
     }
 
     function replaceLegacySiteData() {
-        const legacy = config.legacyReplace || {};
-        const replacements = [];
-
-        if (Array.isArray(legacy.companyNames)) {
-            legacy.companyNames.forEach((item) => {
-                replacements.push([item, config.companyName]);
-            });
-        }
-
-        if (Array.isArray(legacy.phones)) {
-            legacy.phones.forEach((item) => {
-                replacements.push([item, config.phone.number]);
-            });
-        }
-
-        if (Array.isArray(legacy.emails)) {
-            legacy.emails.forEach((item) => {
-                replacements.push([item, config.email.value]);
-            });
-        }
-
-        if (Array.isArray(legacy.addresses)) {
-            legacy.addresses.forEach((item) => {
-                replacements.push([item, config.address.full]);
-            });
-        }
+        const replacements = getReplacementPairs();
 
         if (!replacements.length) return;
 
+        replaceTextNodes(document.body, replacements);
+        replaceAttributes(document, replacements);
+    }
+
+    function getReplacementPairs() {
+        const legacy = config.legacyReplace || {};
+
+        const companyName = config.companyName || "";
+        const companyId = config.companyId || "";
+        const phoneNumber = config.phone?.number || "";
+        const phoneHref = config.phone?.href || "";
+        const emailValue = config.email?.value || "";
+        const emailHref = config.email?.href || "";
+        const addressFull = config.address?.full || "";
+
+        const pairs = [];
+
+        const addPairs = (items, replacement) => {
+            if (!Array.isArray(items)) return;
+
+            items.forEach((item) => {
+                if (!item || !replacement || item === replacement) return;
+                pairs.push([String(item), String(replacement)]);
+            });
+        };
+
+        addPairs(legacy.companyNames, companyName);
+        addPairs(legacy.phones, phoneNumber);
+        addPairs(legacy.emails, emailValue);
+        addPairs(legacy.addresses, addressFull);
+
+        const defaultCompanyNames = ["Paneli Provider Matching LLC", "Paneli"];
+        const defaultPhones = ["(888) 555-0186", "+18885550186", "tel:+18885550186"];
+        const defaultEmails = ["hello@paneli.example", "mailto:hello@paneli.example"];
+        const defaultAddresses = ["2184 W Cedar Frame Ave", "2184 W Cedar Frame Ave, Denver, CO 80202, USA"];
+
+        addPairs(defaultCompanyNames, companyName);
+        addPairs([companyId], companyId);
+        addPairs(defaultPhones, phoneNumber);
+        addPairs(["tel:+18885550186"], phoneHref);
+        addPairs(defaultEmails, emailValue);
+        addPairs(["mailto:hello@paneli.example"], emailHref);
+        addPairs(defaultAddresses, addressFull);
+
+        return pairs
+            .filter(([from, to]) => from && to && from !== to)
+            .sort((a, b) => b[0].length - a[0].length);
+    }
+
+    function replaceTextNodes(root, replacements) {
+        if (!root) return;
+
         const excludedTags = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "IFRAME", "SVG", "PATH"]);
 
-        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
             acceptNode(node) {
                 if (!node.parentElement || excludedTags.has(node.parentElement.tagName)) {
                     return NodeFilter.FILTER_REJECT;
@@ -650,34 +786,41 @@
         }
 
         textNodes.forEach((node) => {
-            let nextText = node.nodeValue;
-
-            replacements.forEach(([from, to]) => {
-                if (!from || !to) return;
-                nextText = nextText.split(from).join(to);
-            });
+            const nextText = replaceTextValue(node.nodeValue, replacements);
 
             if (nextText !== node.nodeValue) {
                 node.nodeValue = nextText;
             }
         });
+    }
 
-        document.querySelectorAll("a[href]").forEach((link) => {
-            const href = link.getAttribute("href");
+    function replaceAttributes(root, replacements) {
+        const attributesToReplace = ["href", "alt", "title", "aria-label", "placeholder", "content", "value"];
 
-            if (!href) return;
+        root.querySelectorAll("*").forEach((element) => {
+            attributesToReplace.forEach((attributeName) => {
+                if (!element.hasAttribute(attributeName)) return;
 
-            let nextHref = href;
+                const currentValue = element.getAttribute(attributeName);
+                const nextValue = replaceTextValue(currentValue, replacements);
 
-            replacements.forEach(([from, to]) => {
-                if (!from || !to) return;
-                nextHref = nextHref.split(from).join(to);
+                if (nextValue !== currentValue) {
+                    element.setAttribute(attributeName, nextValue);
+                }
             });
-
-            if (nextHref !== href) {
-                link.setAttribute("href", nextHref);
-            }
         });
+    }
+
+    function replaceTextValue(value, replacements) {
+        let nextValue = String(value || "");
+
+        replacements.forEach(([from, to]) => {
+            if (!from || !to || from === to) return;
+
+            nextValue = nextValue.split(from).join(to);
+        });
+
+        return nextValue;
     }
 
     
