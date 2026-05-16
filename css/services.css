@@ -107,8 +107,10 @@
     inset: 0;
     z-index: -2;
     background:
-        linear-gradient(180deg, rgba(18, 10, 27, 0.08) 0%, rgba(18, 10, 27, 0.22) 36%, rgba(18, 10, 27, 0.9) 100%),
-        radial-gradient(circle at 18% 12%, rgba(201, 167, 242, 0.22), transparent 18rem);
+        linear-gradient(180deg,
+            rgba(0, 0, 0, 0.08) 0%,
+            rgba(0, 0, 0, 0.22) 36%,
+            rgba(0, 0, 0, 0.9) 100%);
     transition: background 220ms ease;
 }
 
@@ -209,9 +211,10 @@
 
 .services-index .service-photo-card__link:hover .service-photo-card__shade {
     background:
-        linear-gradient(180deg, rgba(18, 10, 27, 0.06) 0%, rgba(18, 10, 27, 0.18) 34%, rgba(18, 10, 27, 0.94) 100%),
-        radial-gradient(circle at 82% 14%, rgba(201, 167, 242, 0.32), transparent 16rem),
-        radial-gradient(circle at 18% 86%, rgba(143, 200, 232, 0.26), transparent 16rem);
+        linear-gradient(180deg,
+            rgba(0, 0, 0, 0.06) 0%,
+            rgba(0, 0, 0, 0.18) 34%,
+            rgba(0, 0, 0, 0.94) 100%);
 }
 
 .services-index .service-photo-card__link:hover .service-photo-card__icon {
@@ -412,8 +415,11 @@
     inset: 0;
     z-index: -2;
     background:
-        linear-gradient(180deg, rgba(8, 7, 16, 0.08) 0%, rgba(8, 7, 16, 0.32) 42%, rgba(8, 7, 16, 0.96) 100%),
-        linear-gradient(90deg, rgba(8, 7, 16, 0.34), transparent 58%);
+        linear-gradient(180deg,
+            rgba(0, 0, 0, 0.08) 0%,
+            rgba(0, 0, 0, 0.32) 42%,
+            rgba(0, 0, 0, 0.96) 100%),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.34), transparent 58%);
     transition: background 240ms ease;
 }
 
@@ -483,8 +489,11 @@
 .material-panel:hover .material-panel__shade,
 .material-panel:focus-visible .material-panel__shade {
     background:
-        linear-gradient(180deg, rgba(8, 7, 16, 0.04) 0%, rgba(8, 7, 16, 0.24) 38%, rgba(8, 7, 16, 0.98) 100%),
-        radial-gradient(circle at 78% 84%, rgba(201, 167, 242, 0.28), transparent 13rem);
+        linear-gradient(180deg,
+            rgba(0, 0, 0, 0.04) 0%,
+            rgba(0, 0, 0, 0.24) 38%,
+            rgba(0, 0, 0, 0.98) 100%),
+        radial-gradient(circle at 78% 84%, rgba(0, 0, 0, 0.18), transparent 13rem);
 }
 
 .material-panel:hover .material-panel__arrow,
@@ -1264,9 +1273,9 @@
     border-radius: 18px;
     background:
         linear-gradient(180deg,
-            rgba(9, 9, 18, 0.1) 0%,
-            rgba(9, 9, 18, 0.48) 42%,
-            rgba(9, 9, 18, 0.94) 100%),
+            rgba(0, 0, 0, 0.1) 0%,
+            rgba(0, 0, 0, 0.48) 42%,
+            rgba(0, 0, 0, 0.94) 100%),
         url("../assets/images/hero-services-siding.jpg");
     background-position: center;
     background-size: cover;
@@ -1279,8 +1288,8 @@
     inset: 0;
     z-index: -1;
     background:
-        radial-gradient(circle at 16% 22%, rgba(201, 167, 242, 0.26), transparent 22rem),
-        linear-gradient(90deg, rgba(9, 9, 18, 0.76), rgba(9, 9, 18, 0.24));
+        radial-gradient(circle at 16% 22%, rgba(0, 0, 0, 0.18), transparent 22rem),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.24));
     content: "";
 }
 
@@ -1653,14 +1662,14 @@
         min-height: 185px;
     }
 
-    .material-panel__shade {
-        background:
-            linear-gradient(180deg,
-                rgba(8, 7, 16, 0.08) 0%,
-                rgba(8, 7, 16, 0.34) 38%,
-                rgba(8, 7, 16, 0.96) 100%),
-            linear-gradient(90deg, rgba(8, 7, 16, 0.38), transparent 62%);
-    }
+	    .material-panel__shade {
+	        background:
+	            linear-gradient(180deg,
+	                rgba(0, 0, 0, 0.08) 0%,
+	                rgba(0, 0, 0, 0.34) 38%,
+	                rgba(0, 0, 0, 0.96) 100%),
+	            linear-gradient(90deg, rgba(0, 0, 0, 0.38), transparent 62%);
+	    }
 
     .material-panel__content {
         left: 18px;

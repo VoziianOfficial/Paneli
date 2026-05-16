@@ -132,8 +132,7 @@
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(180deg, rgba(27, 16, 34, 0.08), rgba(27, 16, 34, 0.76)),
-        radial-gradient(circle at 22% 12%, rgba(201, 167, 242, 0.2), transparent 24rem);
+        linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.76));
     content: "";
 }
 
@@ -397,8 +396,8 @@
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(90deg, rgba(27, 16, 34, 0.16), transparent 48%),
-        linear-gradient(180deg, transparent, rgba(27, 16, 34, 0.32));
+        linear-gradient(90deg, rgba(0, 0, 0, 0.16), transparent 48%),
+        linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.32));
     content: "";
     pointer-events: none;
 }
@@ -948,10 +947,9 @@
 .related-services .service-photo-card__shade {
     background:
         linear-gradient(180deg,
-            rgba(18, 10, 27, 0.06) 0%,
-            rgba(18, 10, 27, 0.24) 38%,
-            rgba(18, 10, 27, 0.9) 100%),
-        radial-gradient(circle at 18% 12%, rgba(201, 167, 242, 0.2), transparent 18rem);
+            rgba(0, 0, 0, 0.06) 0%,
+            rgba(0, 0, 0, 0.24) 38%,
+            rgba(0, 0, 0, 0.9) 100%);
 }
 
 .related-services .service-photo-card__content {
@@ -1006,11 +1004,9 @@
 .related-services .service-photo-card__link:hover .service-photo-card__shade {
     background:
         linear-gradient(180deg,
-            rgba(18, 10, 27, 0.04) 0%,
-            rgba(18, 10, 27, 0.2) 34%,
-            rgba(18, 10, 27, 0.94) 100%),
-        radial-gradient(circle at 82% 14%, rgba(201, 167, 242, 0.32), transparent 16rem),
-        radial-gradient(circle at 18% 86%, rgba(143, 200, 232, 0.22), transparent 16rem);
+            rgba(0, 0, 0, 0.04) 0%,
+            rgba(0, 0, 0, 0.2) 34%,
+            rgba(0, 0, 0, 0.94) 100%);
 }
 
 /* tablet */
