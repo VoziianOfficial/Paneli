@@ -153,7 +153,7 @@ window.SITE_CONFIG = {
             shortTitle: "Replacement",
             href: "siding-replacement.html",
             icon: "refresh-cw",
-            image: "./assets/images/card-2.jpg",
+	            image: "./assets/images/service-replacement.jpg",
             heroImage: "./assets/images/hero-replacement-siding.jpg",
             kicker: "Old siding updates",
             summary:
