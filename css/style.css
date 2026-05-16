@@ -2492,3 +2492,251 @@ body {
     }
 }
 
+/* ==================================================
+   PREMIUM SECTION DIVIDER
+================================================== */
+
+.section {
+    position: relative;
+}
+
+.section::after {
+    position: absolute;
+    right: 7%;
+    bottom: 0;
+    left: 7%;
+    height: 1px;
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(94, 168, 207, 0.42),
+            rgba(255, 255, 255, 0.22),
+            transparent);
+    content: "";
+    pointer-events: none;
+    opacity: 0.65;
+}
+
+/* ==================================================
+   PHOTO CARD SHINE
+================================================== */
+
+.service-photo-card__link::before,
+.material-panel::before {
+    position: absolute;
+    top: -60%;
+    left: -80%;
+    z-index: 4;
+    width: 55%;
+    height: 220%;
+    transform: rotate(24deg);
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.18),
+            rgba(255, 255, 255, 0.42),
+            rgba(255, 255, 255, 0.12),
+            transparent);
+    content: "";
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        transform 650ms ease,
+        opacity 180ms ease;
+}
+
+.service-photo-card__link:hover::before,
+.material-panel:hover::before {
+    transform: rotate(24deg) translateX(360%);
+    opacity: 1;
+}
+
+/* ==================================================
+   STEEL NUMBER / LINE HOVER
+================================================== */
+
+[class*="__number"],
+[class*="-row__number"] {
+    transition:
+        color 180ms ease,
+        text-shadow 180ms ease,
+        transform 180ms ease;
+}
+
+article:hover [class*="__number"],
+article:hover [class*="-row__number"] {
+    color: #5ea8cf;
+    text-shadow: 0 0 18px rgba(94, 168, 207, 0.38);
+    transform: translateY(-1px);
+}
+
+/* ==================================================
+   PREMIUM DEPTH PACK — JUICY / VOLUMETRIC DETAILS
+================================================== */
+
+/* 1. Более дорогие объёмные карточки */
+.service-photo-card__link,
+.material-panel,
+.form-panel,
+.faq-item,
+.choice-factor,
+.before-submit-row,
+.provider-marquee__item,
+.estimate-line,
+.contact-step,
+.service-questions__list>*,
+.notice-split,
+.glass-panel {
+    box-shadow:
+        0 18px 46px rgba(0, 0, 0, 0.22),
+        0 2px 0 rgba(255, 255, 255, 0.035) inset,
+        0 -1px 0 rgba(0, 0, 0, 0.28) inset;
+}
+
+/* 2. На hover карточки становятся глубже, но без дешёвого прыжка */
+.service-photo-card__link:hover,
+.material-panel:hover,
+.form-panel:hover,
+.faq-item:hover,
+.choice-factor:hover,
+.before-submit-row:hover,
+.provider-marquee__item:hover,
+.estimate-line:hover,
+.contact-step:hover,
+.service-questions__list>*:hover {
+    box-shadow:
+        0 26px 70px rgba(0, 0, 0, 0.3),
+        0 0 34px rgba(94, 168, 207, 0.12),
+        0 1px 0 rgba(255, 255, 255, 0.08) inset,
+        0 -1px 0 rgba(0, 0, 0, 0.3) inset;
+}
+
+/* 3. Фото-карточки выглядят сочнее */
+.service-photo-card__link img,
+.material-panel img,
+.photo-panel img,
+.service-overview__visual img,
+.service-estimate__media img,
+.before-choose__photo img {
+    filter: brightness(1.05) contrast(1.06) saturate(1.08);
+}
+
+/* 4. При hover фото чуть ярче и глубже */
+.service-photo-card__link:hover img,
+.material-panel:hover img,
+.photo-panel:hover img,
+.service-overview__visual:hover img,
+.service-estimate__media:hover img,
+.before-choose__photo:hover img {
+    filter: brightness(1.1) contrast(1.08) saturate(1.12);
+}
+
+/* 5. Стальной контур на hover */
+.service-photo-card__link,
+.material-panel,
+.choice-factor,
+.before-submit-row,
+.service-questions__list>*,
+.faq-item {
+    transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease,
+        filter 180ms ease;
+}
+
+.service-photo-card__link:hover,
+.material-panel:hover,
+.choice-factor:hover,
+.before-submit-row:hover,
+.service-questions__list>*:hover,
+.faq-item:hover {
+    border-color: rgba(94, 168, 207, 0.42);
+}
+
+/* 6. Заголовки внутри тёмных карточек чуть светятся */
+.service-photo-card__link:hover h3,
+.material-panel:hover h3,
+.choice-factor:hover h3,
+.service-questions__list>*:hover h3,
+.estimate-line:hover h3 {
+    text-shadow: 0 0 22px rgba(94, 168, 207, 0.18);
+}
+
+/* 7. Маленькие иконки становятся сочнее */
+.service-photo-card__icon,
+.material-panel__icon,
+.services-index__notice-icon,
+.faq-button__icon {
+    box-shadow:
+        0 10px 26px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.service-photo-card__link:hover .service-photo-card__icon,
+.material-panel:hover .material-panel__icon,
+.faq-item:hover .faq-button__icon {
+    color: #ffffff;
+    border-color: rgba(94, 168, 207, 0.55);
+    background: rgba(94, 168, 207, 0.18);
+    box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.3),
+        0 0 24px rgba(94, 168, 207, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* 8. Светлые секции сделать менее плоскими */
+.section--light {
+    background:
+        radial-gradient(circle at 14% 0%, rgba(94, 168, 207, 0.08), transparent 30rem),
+        radial-gradient(circle at 88% 16%, rgba(255, 255, 255, 0.9), transparent 26rem),
+        linear-gradient(135deg, #ffffff 0%, #f7f9fb 48%, #eef4f8 100%);
+}
+
+/* 9. На тёмных секциях добавить дорогой нижний объём */
+.section--dark,
+.provider-marquee,
+.why-paneli-marquee,
+.services-estimate,
+.service-questions {
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.045),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* 10. Чуть более сочные CTA фото */
+.cta-strip,
+.home-final-cta,
+.services-final-cta,
+.service-final-cta,
+.contact-final-cta,
+.about-final-cta,
+.legal-final-cta {
+    filter: saturate(1.06) contrast(1.03);
+}
+
+/* ==================================================
+   PHOTO CARD FLOOR GLOW
+================================================== */
+
+.service-photo-card__link::after,
+.material-panel::after {
+    position: absolute;
+    right: 10%;
+    bottom: -26px;
+    left: 10%;
+    z-index: 1;
+    height: 54px;
+    border-radius: 999px;
+    background: rgba(94, 168, 207, 0.16);
+    filter: blur(24px);
+    opacity: 0;
+    content: "";
+    pointer-events: none;
+    transition: opacity 220ms ease;
+}
+
+.service-photo-card__link:hover::after,
+.material-panel:hover::after {
+    opacity: 1;
+}
