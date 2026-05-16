@@ -1089,10 +1089,6 @@
     padding-bottom: clamp(70px, 8vw, 126px);
 }
 
-.services-final-cta .cta-strip {
-    --cta-image: url("../assets/images/cta-siding-exterior.jpg");
-}
-
 /* ==================================================
    RESPONSIVE
 ================================================== */
@@ -1725,4 +1721,29 @@
         width: 32px;
         height: 32px;
     }
+}
+
+/* ==================================================
+   SERVICES ESTIMATE — BRIGHTER PHOTO
+================================================== */
+
+.services-estimate__copy {
+    background:
+        linear-gradient(180deg,
+            rgba(0, 0, 0, 0.04) 0%,
+            rgba(0, 0, 0, 0.28) 46%,
+            rgba(0, 0, 0, 0.68) 100%),
+        url("../assets/images/hero-services-siding.jpg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* если у тебя есть дополнительный overlay через ::before — ослабляем его */
+.services-estimate__copy::before {
+    background:
+        linear-gradient(90deg,
+            rgba(0, 0, 0, 0.42),
+            rgba(0, 0, 0, 0.08)) !important;
+    opacity: 0.65 !important;
 }

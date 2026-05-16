@@ -1465,6 +1465,46 @@ main {
     content: "";
 }
 
+.home-final-cta,
+.services-final-cta,
+.service-final-cta,
+.contact-final-cta,
+.about-final-cta,
+.legal-final-cta {
+    position: relative;
+    isolation: isolate;
+    background:
+        linear-gradient(90deg,
+            rgba(0, 0, 0, 0.82) 0%,
+            rgba(0, 0, 0, 0.58) 50%,
+            rgba(0, 0, 0, 0.36) 100%),
+        url("../assets/images/cta-siding-exterior.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.home-final-cta .cta-strip,
+.services-final-cta .cta-strip,
+.service-final-cta .cta-strip,
+.contact-final-cta .cta-strip,
+.about-final-cta .cta-strip,
+.legal-final-cta .cta-strip {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding-inline: 0;
+}
+
+.home-final-cta .cta-strip::before,
+.services-final-cta .cta-strip::before,
+.service-final-cta .cta-strip::before,
+.contact-final-cta .cta-strip::before,
+.about-final-cta .cta-strip::before,
+.legal-final-cta .cta-strip::before {
+    content: none;
+}
+
 .cta-strip__inner {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
