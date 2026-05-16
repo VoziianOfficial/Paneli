@@ -271,77 +271,7 @@
     opacity: 0.75;
 }
 
-/* ==================================================
-   CONTACT FORM SECTION
-================================================== */
 
-.contact-form-section {
-    position: relative;
-    overflow: hidden;
-}
-
-.contact-form-section::before {
-    position: absolute;
-    top: 20%;
-    left: -180px;
-    width: 420px;
-    height: 420px;
-    border-radius: 999px;
-    background: rgba(143, 200, 232, 0.1);
-    filter: blur(50px);
-    content: "";
-    pointer-events: none;
-}
-
-.contact-form-section__layout {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: minmax(0, 0.52fr) minmax(340px, 0.62fr);
-    gap: clamp(30px, 6vw, 86px);
-    align-items: start;
-}
-
-.contact-form-section__copy {
-    display: grid;
-    gap: 18px;
-}
-
-.contact-form-section__copy h2 {
-    color: var(--color-white);
-    font-size: clamp(2rem, 4.6vw, 4.45rem);
-    font-weight: 620;
-    line-height: 1;
-    letter-spacing: -0.065em;
-}
-
-.contact-form-section__copy p {
-    color: var(--color-muted);
-}
-
-.contact-form-section__notice {
-    display: grid;
-    gap: 12px;
-    margin-top: 12px;
-    border: 1px solid var(--color-line);
-    border-radius: 22px;
-    background:
-        radial-gradient(circle at 0% 0%, rgba(201, 167, 242, 0.13), transparent 18rem),
-        rgba(255, 255, 255, 0.055);
-    padding: 18px;
-}
-
-.contact-form-section__notice h3 {
-    color: var(--color-white);
-    font-size: 1.08rem;
-    font-weight: 820;
-    letter-spacing: -0.035em;
-}
-
-.contact-form-section__notice p {
-    color: rgba(248, 245, 251, 0.68);
-    font-size: 0.9rem;
-}
 
 /* ==================================================
    CONTACT OPTIONS
@@ -743,5 +673,545 @@
     .aggregator-notice__copy h2,
     .contact-faq__copy h2 {
         letter-spacing: -0.055em;
+    }
+}
+
+/* ==================================================
+   CONTACT FORM SECTION — DARK SPLIT FORM
+================================================== */
+
+.contact-form-section {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(48px, 6vw, 86px) 0;
+    background:
+        radial-gradient(circle at 12% 18%, rgba(201, 167, 242, 0.13), transparent 30rem),
+        radial-gradient(circle at 86% 18%, rgba(143, 200, 232, 0.08), transparent 28rem),
+        linear-gradient(135deg, #120a1b 0%, #090912 100%);
+    color: #ffffff;
+}
+
+.contact-form-section__layout {
+    display: grid;
+    grid-template-columns: minmax(320px, 0.82fr) minmax(420px, 1fr);
+    gap: clamp(34px, 6vw, 88px);
+    align-items: start;
+}
+
+.contact-form-section__copy {
+    padding-top: 12px;
+}
+
+.contact-form-section__heading {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.contact-form-section__heading h2 {
+    color: #ffffff;
+    font-family: var(--font-main);
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 520;
+    line-height: 1;
+    letter-spacing: -0.06em;
+}
+
+.contact-form-section__heading span {
+    color: var(--color-accent-hover);
+    font-size: 0.72rem;
+    font-weight: 850;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+/* left steps */
+
+.contact-steps {
+    display: grid;
+}
+
+.contact-step {
+    display: grid;
+    grid-template-columns: 68px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    padding: 19px 0;
+}
+
+.contact-step>span {
+    color: var(--color-accent-hover);
+    font-family: var(--font-main);
+    font-size: clamp(1.8rem, 2.6vw, 2.6rem);
+    font-weight: 420;
+    line-height: 1;
+    letter-spacing: -0.06em;
+}
+
+.contact-step h3 {
+    margin-bottom: 4px;
+    color: #ffffff;
+    font-family: var(--font-main);
+    font-size: clamp(1.05rem, 1.45vw, 1.35rem);
+    font-weight: 560;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+}
+
+.contact-step p {
+    max-width: 540px;
+    color: rgba(248, 245, 251, 0.68);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* form panel */
+
+.contact-form-section .form-panel {
+    border: 1px solid rgba(201, 167, 242, 0.22);
+    border-radius: 16px;
+    background:
+        radial-gradient(circle at 20% 0%, rgba(201, 167, 242, 0.12), transparent 24rem),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+    color: #ffffff;
+    padding: clamp(24px, 3.5vw, 36px);
+    box-shadow:
+        0 24px 70px rgba(5, 3, 12, 0.34),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.contact-form-section .form-panel__header {
+    margin-bottom: 18px;
+}
+
+.contact-form-section .form-panel__header h2 {
+    color: rgba(248, 245, 251, 0.9);
+    font-family: var(--font-main);
+    font-size: clamp(1.35rem, 2.2vw, 2rem);
+    font-weight: 520;
+    line-height: 1.1;
+    letter-spacing: -0.045em;
+}
+
+.contact-form-section .paneli-form {
+    display: grid;
+    gap: 12px;
+}
+
+.contact-form-section .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.contact-form-section .form-field {
+    position: relative;
+    display: grid;
+    gap: 0;
+}
+
+.contact-form-section .form-field--full {
+    grid-column: 1 / -1;
+}
+
+.contact-form-section .form-field label {
+    position: absolute;
+    top: 9px;
+    left: 15px;
+    z-index: 2;
+    color: rgba(248, 245, 251, 0.56);
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.contact-form-section .form-field input,
+.contact-form-section .form-field select,
+.contact-form-section .form-field textarea {
+    width: 100%;
+    min-height: 52px;
+    border: 1px solid rgba(201, 167, 242, 0.22);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.045);
+    color: #ffffff;
+    padding: 22px 15px 9px;
+    outline: none;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    transition:
+        border-color 180ms ease,
+        background 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.contact-form-section .form-field textarea {
+    min-height: 116px;
+    resize: vertical;
+}
+
+.contact-form-section .form-field input::placeholder,
+.contact-form-section .form-field textarea::placeholder {
+    color: rgba(248, 245, 251, 0.48);
+}
+
+.contact-form-section .form-field select {
+    appearance: none;
+    background-image:
+        linear-gradient(45deg, transparent 50%, rgba(248, 245, 251, 0.72) 50%),
+        linear-gradient(135deg, rgba(248, 245, 251, 0.72) 50%, transparent 50%);
+    background-position:
+        calc(100% - 18px) 58%,
+        calc(100% - 13px) 58%;
+    background-size:
+        5px 5px,
+        5px 5px;
+    background-repeat: no-repeat;
+}
+
+.contact-form-section .form-field select option {
+    background: #1b1022;
+    color: #ffffff;
+}
+
+.contact-form-section .form-field input:focus,
+.contact-form-section .form-field textarea:focus,
+.contact-form-section .form-field select:focus {
+    border-color: rgba(201, 167, 242, 0.7);
+    background: rgba(255, 255, 255, 0.075);
+    box-shadow:
+        0 0 0 4px rgba(201, 167, 242, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.contact-form-section .form-field input.is-invalid,
+.contact-form-section .form-field textarea.is-invalid,
+.contact-form-section .form-field select.is-invalid {
+    border-color: rgba(255, 130, 170, 0.75);
+    box-shadow: 0 0 0 4px rgba(255, 130, 170, 0.12);
+}
+
+.contact-form-section .form-error {
+    min-height: 16px;
+    margin-top: 4px;
+    color: #ff9cbd;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+/* submit */
+
+.contact-form-submit {
+    display: inline-flex;
+    width: 100%;
+    min-height: 56px;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: 0;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #d7bbff 0%, #c9a7f2 100%);
+    color: #1b1022;
+    padding: 15px 20px;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 850;
+    line-height: 1;
+    transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        background 180ms ease;
+}
+
+.contact-form-submit span {
+    margin-left: auto;
+    font-size: 1.35rem;
+    line-height: 1;
+}
+
+.contact-form-submit:hover {
+    transform: translateY(-1px);
+    background: linear-gradient(135deg, #e3ceff 0%, #c9a7f2 100%);
+    box-shadow: 0 0 28px rgba(201, 167, 242, 0.28);
+}
+
+.contact-form-section .form-status {
+    min-height: 18px;
+    margin-top: 2px;
+    color: rgba(248, 245, 251, 0.72);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.contact-form-section .form-status.is-success {
+    color: #a6d8f4;
+}
+
+.contact-form-section .form-status.is-error {
+    color: #ff9cbd;
+}
+
+.contact-form-section .form-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 0;
+    color: rgba(248, 245, 251, 0.55);
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.contact-form-section .form-note span {
+    color: var(--color-accent-hover);
+    line-height: 1.4;
+}
+
+/* tablet */
+
+@media (max-width: 980px) {
+    .contact-form-section__layout {
+        grid-template-columns: 1fr;
+        gap: 34px;
+    }
+
+    .contact-form-section__copy {
+        padding-top: 0;
+    }
+
+    .contact-steps {
+        max-width: none;
+    }
+}
+
+/* mobile */
+
+@media (max-width: 680px) {
+    .contact-form-section {
+        padding: 42px 0 58px;
+    }
+
+    .contact-step {
+        grid-template-columns: 46px minmax(0, 1fr);
+        gap: 12px;
+        padding: 16px 0;
+    }
+
+    .contact-step>span {
+        font-size: 1.6rem;
+    }
+
+    .contact-step h3 {
+        font-size: 1rem;
+    }
+
+    .contact-step p {
+        font-size: 0.84rem;
+    }
+
+    .contact-form-section .form-panel {
+        border-radius: 14px;
+        padding: 20px;
+    }
+
+    .contact-form-section .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form-section .form-field--full {
+        grid-column: auto;
+    }
+
+    .contact-form-section .form-field input,
+    .contact-form-section .form-field select,
+    .contact-form-section .form-field textarea {
+        min-height: 50px;
+    }
+
+    .contact-form-section .form-field textarea {
+        min-height: 104px;
+    }
+}
+
+/* ==================================================
+   CONTACT FORM COPY — HOVER EFFECTS
+================================================== */
+
+.contact-form-section__copy {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: 18px;
+    padding: 22px 24px;
+    transition:
+        background 220ms ease,
+        box-shadow 220ms ease,
+        transform 220ms ease;
+}
+
+.contact-form-section__copy::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 12% 12%, rgba(201, 167, 242, 0.16), transparent 24rem),
+        radial-gradient(circle at 90% 18%, rgba(143, 200, 232, 0.10), transparent 22rem),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.018));
+    opacity: 0;
+    content: "";
+    pointer-events: none;
+    transition: opacity 220ms ease;
+}
+
+.contact-form-section__copy::after {
+    position: absolute;
+    top: 22px;
+    bottom: 22px;
+    left: 0;
+    width: 2px;
+    transform: scaleY(0.22);
+    transform-origin: center;
+    background: var(--gradient-accent);
+    opacity: 0;
+    content: "";
+    transition:
+        opacity 220ms ease,
+        transform 220ms ease;
+}
+
+.contact-form-section__copy:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.035);
+    box-shadow:
+        0 20px 58px rgba(5, 3, 12, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.contact-form-section__copy:hover::before {
+    opacity: 1;
+}
+
+.contact-form-section__copy:hover::after {
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+/* heading hover */
+
+.contact-form-section__heading {
+    transition:
+        border-color 220ms ease,
+        transform 220ms ease;
+}
+
+.contact-form-section__copy:hover .contact-form-section__heading {
+    border-color: rgba(201, 167, 242, 0.34);
+    transform: translateX(4px);
+}
+
+.contact-form-section__heading h2,
+.contact-form-section__heading span {
+    transition:
+        color 180ms ease,
+        letter-spacing 180ms ease;
+}
+
+.contact-form-section__copy:hover .contact-form-section__heading h2 {
+    color: #ffffff;
+}
+
+.contact-form-section__copy:hover .contact-form-section__heading span {
+    color: var(--color-secondary-hover);
+    letter-spacing: 0.2em;
+}
+
+/* step rows hover */
+
+.contact-step {
+    position: relative;
+    transition:
+        padding-left 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease;
+}
+
+.contact-step::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 0;
+    height: 1px;
+    transform: translateY(-50%);
+    background: var(--gradient-accent);
+    opacity: 0;
+    content: "";
+    transition:
+        width 180ms ease,
+        opacity 180ms ease;
+}
+
+.contact-form-section__copy:hover .contact-step {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.contact-step:hover {
+    padding-left: 12px;
+    background: rgba(255, 255, 255, 0.035);
+    border-color: rgba(201, 167, 242, 0.36);
+}
+
+.contact-step:hover::before {
+    width: 32px;
+    opacity: 1;
+}
+
+.contact-step>span,
+.contact-step h3,
+.contact-step p {
+    transition:
+        color 180ms ease,
+        transform 180ms ease;
+}
+
+.contact-step:hover>span {
+    color: var(--color-secondary-hover);
+    transform: translateX(4px);
+}
+
+.contact-step:hover h3 {
+    color: var(--color-accent-hover);
+    transform: translateX(4px);
+}
+
+.contact-step:hover p {
+    color: rgba(248, 245, 251, 0.84);
+}
+
+/* mobile softer */
+@media (max-width: 680px) {
+    .contact-form-section__copy {
+        padding: 18px 16px;
+        border-radius: 14px;
+    }
+
+    .contact-form-section__copy:hover {
+        transform: none;
+    }
+
+    .contact-form-section__copy:hover .contact-form-section__heading {
+        transform: none;
+    }
+
+    .contact-step:hover {
+        padding-left: 6px;
+    }
+
+    .contact-step:hover::before {
+        width: 18px;
     }
 }

@@ -440,6 +440,11 @@ window.SITE_CONFIG = {
                 question: "What information should I include?",
                 answer:
                     "Include your siding goal, preferred service category, approximate timeline, and any important exterior details you want providers to understand."
+            },
+            {
+                question: "What if I am not sure which service to choose?",
+                answer:
+                    "Pick the closest match and explain your situation in the message field. Independent providers can clarify whether you need installation, replacement, repair, or a consultation after reviewing details directly with you."
             }
         ],
 
