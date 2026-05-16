@@ -1,0 +1,154 @@
+<svg
+  width="184"
+  height="54"
+  viewBox="0 0 184 54"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-labelledby="paneliLogoTitle"
+>
+  <title id="paneliLogoTitle">Paneli</title>
+
+  <defs>
+    <linearGradient id="paneliPanelOne" x1="5" y1="7" x2="54" y2="18" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8F5FB"/>
+      <stop offset="1" stop-color="#D7BBFF"/>
+    </linearGradient>
+
+    <linearGradient id="paneliPanelTwo" x1="8" y1="18" x2="57" y2="29" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D7BBFF"/>
+      <stop offset="1" stop-color="#C9A7F2"/>
+    </linearGradient>
+
+    <linearGradient id="paneliPanelThree" x1="11" y1="29" x2="60" y2="40" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C9A7F2"/>
+      <stop offset="1" stop-color="#9F73D2"/>
+    </linearGradient>
+
+    <linearGradient id="paneliPanelFour" x1="14" y1="40" x2="63" y2="51" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A6D8F4"/>
+      <stop offset="1" stop-color="#8FC8E8"/>
+    </linearGradient>
+
+    <filter id="paneliSoftShadow" x="-12" y="-8" width="90" height="78" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#0A0410" flood-opacity="0.32"/>
+    </filter>
+  </defs>
+
+  <g class="paneli-logo__mark" filter="url(#paneliSoftShadow)">
+    <path
+      d="M6.5 8.5H47.7C50.2 8.5 52.3 10.3 52.8 12.7L53.1 14.3C53.3 15.6 52.3 16.8 51 16.8H4.7C3.4 16.8 2.4 15.6 2.7 14.3L3 12.7C3.5 10.3 4 8.5 6.5 8.5Z"
+      fill="url(#paneliPanelOne)"
+      transform="skewX(-8)"
+    />
+
+    <path
+      d="M9.8 19.1H51C53.5 19.1 55.6 20.9 56.1 23.3L56.4 24.9C56.6 26.2 55.6 27.4 54.3 27.4H8C6.7 27.4 5.7 26.2 6 24.9L6.3 23.3C6.8 20.9 7.3 19.1 9.8 19.1Z"
+      fill="url(#paneliPanelTwo)"
+      transform="skewX(-8)"
+    />
+
+    <path
+      d="M13.1 29.7H54.3C56.8 29.7 58.9 31.5 59.4 33.9L59.7 35.5C59.9 36.8 58.9 38 57.6 38H11.3C10 38 9 36.8 9.3 35.5L9.6 33.9C10.1 31.5 10.6 29.7 13.1 29.7Z"
+      fill="url(#paneliPanelThree)"
+      transform="skewX(-8)"
+    />
+
+    <path
+      d="M16.4 40.3H57.6C60.1 40.3 62.2 42.1 62.7 44.5L63 46.1C63.2 47.4 62.2 48.6 60.9 48.6H14.6C13.3 48.6 12.3 47.4 12.6 46.1L12.9 44.5C13.4 42.1 13.9 40.3 16.4 40.3Z"
+      fill="url(#paneliPanelFour)"
+      transform="skewX(-8)"
+    />
+
+    <path
+      d="M8 17.6H51.4"
+      stroke="#1B1022"
+      stroke-opacity="0.42"
+      stroke-width="1"
+      stroke-linecap="round"
+    />
+
+    <path
+      d="M11.3 28.2H54.7"
+      stroke="#1B1022"
+      stroke-opacity="0.42"
+      stroke-width="1"
+      stroke-linecap="round"
+    />
+
+    <path
+      d="M14.6 38.8H58"
+      stroke="#1B1022"
+      stroke-opacity="0.42"
+      stroke-width="1"
+      stroke-linecap="round"
+    />
+  </g>
+
+  <g class="paneli-logo__word">
+    <path
+      d="M78.4 17.9H89.1C92.2 17.9 94.6 18.7 96.2 20.2C97.9 21.7 98.7 23.8 98.7 26.4C98.7 29 97.9 31.1 96.2 32.6C94.6 34.1 92.2 34.9 89.1 34.9H83.2V45H78.4V17.9ZM83.2 30.9H88.5C90.3 30.9 91.7 30.5 92.6 29.7C93.5 28.9 94 27.8 94 26.4C94 25 93.5 23.9 92.6 23.1C91.7 22.3 90.3 21.9 88.5 21.9H83.2V30.9Z"
+      fill="#F8F5FB"
+    />
+
+    <path
+      d="M110.5 24.4C113.1 24.4 115.1 25.1 116.5 26.5C117.9 27.8 118.6 29.8 118.6 32.4V45H114.3V42.4C113.7 43.3 112.9 44 111.8 44.5C110.8 45 109.6 45.3 108.2 45.3C106.3 45.3 104.8 44.8 103.6 43.8C102.4 42.8 101.8 41.5 101.8 39.9C101.8 38.3 102.4 37 103.6 36.1C104.8 35.1 106.7 34.6 109.2 34.6H114V32.1C114 30.8 113.7 29.8 113 29.2C112.3 28.5 111.2 28.2 109.8 28.2C108.8 28.2 107.8 28.4 106.9 28.7C105.9 29 105.1 29.4 104.4 30L102.7 26.6C103.7 25.9 104.9 25.3 106.2 25C107.6 24.6 109 24.4 110.5 24.4ZM109.1 42C110.3 42 111.3 41.7 112.2 41.2C113.1 40.6 113.7 39.8 114 38.7V37H109.5C107 37 105.8 37.8 105.8 39.5C105.8 40.3 106.1 40.9 106.7 41.4C107.3 41.8 108.1 42 109.1 42Z"
+      fill="#F8F5FB"
+    />
+
+    <path
+      d="M136.5 24.4C139.1 24.4 141.1 25.1 142.5 26.6C144 28.1 144.7 30.3 144.7 33.2V45H140.1V33.8C140.1 32 139.7 30.7 138.9 29.8C138.1 28.9 136.9 28.5 135.4 28.5C133.7 28.5 132.3 29 131.3 30.1C130.3 31.1 129.8 32.6 129.8 34.6V45H125.2V24.6H129.6V27.2C130.4 26.3 131.3 25.6 132.5 25.1C133.7 24.6 135 24.4 136.5 24.4Z"
+      fill="#F8F5FB"
+    />
+
+    <path
+      d="M170.5 34.9C170.5 35.2 170.5 35.7 170.4 36.2H154.3C154.6 37.8 155.4 39.1 156.6 40C157.8 40.9 159.4 41.4 161.2 41.4C163.5 41.4 165.4 40.7 166.8 39.2L169.3 42.1C168.4 43.2 167.2 44 165.8 44.5C164.4 45 162.8 45.3 161.1 45.3C158.9 45.3 156.9 44.9 155.2 44C153.5 43.1 152.2 41.9 151.3 40.3C150.4 38.7 149.9 36.9 149.9 34.9C149.9 32.9 150.3 31.1 151.2 29.5C152.1 27.9 153.3 26.7 154.9 25.8C156.5 24.9 158.3 24.4 160.3 24.4C162.3 24.4 164 24.9 165.6 25.8C167.1 26.7 168.3 27.9 169.2 29.5C170.1 31.1 170.5 32.9 170.5 34.9ZM160.3 28.1C158.7 28.1 157.4 28.6 156.3 29.5C155.2 30.4 154.5 31.7 154.3 33.3H166.1C165.9 31.8 165.2 30.5 164.2 29.6C163.1 28.6 161.8 28.1 160.3 28.1Z"
+      fill="#F8F5FB"
+    />
+
+    <path
+      d="M176 16.3H180.6V45H176V16.3Z"
+      fill="#F8F5FB"
+    />
+
+    <path
+      d="M147.8 24.6H152.4V45H147.8V24.6Z"
+      fill="#F8F5FB"
+    />
+
+    <circle cx="150.1" cy="17.7" r="2.7" fill="#8FC8E8"/>
+  </g>
+
+  <style>
+    .paneli-logo__mark {
+      transform-origin: 32px 28px;
+      transition: transform 220ms ease, filter 220ms ease;
+    }
+
+    .paneli-logo__word path,
+    .paneli-logo__word circle {
+      transition: fill 220ms ease, opacity 220ms ease;
+    }
+
+    svg:hover .paneli-logo__mark {
+      transform: translateX(1.5px);
+      filter: drop-shadow(0 0 12px rgba(201, 167, 242, 0.28));
+    }
+
+    svg:hover .paneli-logo__word circle {
+      fill: #C9A7F2;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .paneli-logo__mark,
+      .paneli-logo__word path,
+      .paneli-logo__word circle {
+        transition: none;
+      }
+
+      svg:hover .paneli-logo__mark {
+        transform: none;
+      }
+    }
+  </style>
+</svg>

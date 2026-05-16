@@ -1,0 +1,90 @@
+<svg
+  width="64"
+  height="64"
+  viewBox="0 0 64 64"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-labelledby="paneliFaviconTitle"
+>
+  <title id="paneliFaviconTitle">Paneli</title>
+
+  <rect width="64" height="64" rx="0" fill="#25152E"/>
+
+  <defs>
+    <linearGradient id="faviconPanelOne" x1="13" y1="11" x2="51" y2="19" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8F5FB"/>
+      <stop offset="1" stop-color="#D7BBFF"/>
+    </linearGradient>
+
+    <linearGradient id="faviconPanelTwo" x1="15" y1="23" x2="53" y2="31" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D7BBFF"/>
+      <stop offset="1" stop-color="#C9A7F2"/>
+    </linearGradient>
+
+    <linearGradient id="faviconPanelThree" x1="17" y1="35" x2="55" y2="43" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C9A7F2"/>
+      <stop offset="1" stop-color="#9F73D2"/>
+    </linearGradient>
+
+    <linearGradient id="faviconPanelFour" x1="19" y1="47" x2="57" y2="55" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A6D8F4"/>
+      <stop offset="1" stop-color="#8FC8E8"/>
+    </linearGradient>
+
+    <filter id="faviconGlow" x="1" y="0" width="62" height="66" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#0A0410" flood-opacity="0.38"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#C9A7F2" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#faviconGlow)">
+    <path
+      d="M15.7 10.5H47.2C49.1 10.5 50.7 11.9 51.1 13.8L51.4 15.3C51.6 16.6 50.6 17.8 49.3 17.8H13.8C12.5 17.8 11.5 16.6 11.8 15.3L12.1 13.8C12.5 11.9 13.8 10.5 15.7 10.5Z"
+      fill="url(#faviconPanelOne)"
+      transform="skewX(-8)"
+    />
+
+    <path
+      d="M18.1 22.5H49.6C51.5 22.5 53.1 23.9 53.5 25.8L53.8 27.3C54 28.6 53 29.8 51.7 29.8H16.2C14.9 29.8 13.9 28.6 14.2 27.3L14.5 25.8C14.9 23.9 16.2 22.5 18.1 22.5Z"
+      fill="url(#faviconPanelTwo)"
+      transform="skewX(-8)"
+    />
+
+    <path
+      d="M20.5 34.5H52C53.9 34.5 55.5 35.9 55.9 37.8L56.2 39.3C56.4 40.6 55.4 41.8 54.1 41.8H18.6C17.3 41.8 16.3 40.6 16.6 39.3L16.9 37.8C17.3 35.9 18.6 34.5 20.5 34.5Z"
+      fill="url(#faviconPanelThree)"
+      transform="skewX(-8)"
+    />
+
+    <path
+      d="M22.9 46.5H54.4C56.3 46.5 57.9 47.9 58.3 49.8L58.6 51.3C58.8 52.6 57.8 53.8 56.5 53.8H21C19.7 53.8 18.7 52.6 19 51.3L19.3 49.8C19.7 47.9 21 46.5 22.9 46.5Z"
+      fill="url(#faviconPanelFour)"
+      transform="skewX(-8)"
+    />
+
+    <path
+      d="M15.5 18.8H49"
+      stroke="#1B1022"
+      stroke-opacity="0.45"
+      stroke-width="1"
+      stroke-linecap="round"
+    />
+
+    <path
+      d="M17.9 30.8H51.4"
+      stroke="#1B1022"
+      stroke-opacity="0.45"
+      stroke-width="1"
+      stroke-linecap="round"
+    />
+
+    <path
+      d="M20.3 42.8H53.8"
+      stroke="#1B1022"
+      stroke-opacity="0.45"
+      stroke-width="1"
+      stroke-linecap="round"
+    />
+  </g>
+</svg>
