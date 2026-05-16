@@ -23,8 +23,10 @@
     renderFaqSchema();
     renderPolicyBanner();
 
-    injectDynamicContent();
     replaceLegacySiteData();
+    injectDynamicContent();
+    repairContactLinks();
+  
 
     initHeaderScroll();
     initServicesDropdown();
@@ -697,6 +699,51 @@
             }
         });
     }
+  
+  function repairContactLinks() {
+    const phoneHref = config.phone && config.phone.href ? config.phone.href : "";
+    const phoneNumber = config.phone && config.phone.number ? config.phone.number : "";
+
+    const emailHref = config.email && config.email.href ? config.email.href : "";
+    const emailValue = config.email && config.email.value ? config.email.value : "";
+
+    if (phoneHref) {
+      document.querySelectorAll("[data-phone-link], a[href^='tel:']").forEach((link) => {
+        link.setAttribute("href", phoneHref);
+      });
+
+      document.querySelectorAll("a[href]").forEach((link) => {
+        const href = link.getAttribute("href") || "";
+
+        if (
+          href === phoneNumber ||
+          href.includes("555-0186") ||
+          href.includes("18885550186") ||
+          href.startsWith("(")
+        ) {
+          link.setAttribute("href", phoneHref);
+        }
+      });
+    }
+
+    if (emailHref) {
+      document.querySelectorAll("[data-email-link], a[href^='mailto:']").forEach((link) => {
+        link.setAttribute("href", emailHref);
+      });
+
+      document.querySelectorAll("a[href]").forEach((link) => {
+        const href = link.getAttribute("href") || "";
+
+        if (
+          href === emailValue ||
+          href.includes("hello@paneli.example") ||
+          href.includes("@paneli")
+        ) {
+          link.setAttribute("href", emailHref);
+        }
+      });
+    }
+  }
 
     function setText(selector, value) {
         document.querySelectorAll(selector).forEach((element) => {
@@ -796,7 +843,7 @@
     }
 
     function replaceAttributes(root, replacements) {
-        const attributesToReplace = ["href", "alt", "title", "aria-label", "placeholder", "content", "value"];
+        const attributesToReplace = [ "alt", "title", "aria-label", "placeholder", "content", "value"];
 
         root.querySelectorAll("*").forEach((element) => {
             attributesToReplace.forEach((attributeName) => {
