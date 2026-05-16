@@ -394,6 +394,11 @@ window.SITE_CONFIG = {
                 question: "What siding details should I compare?",
                 answer:
                     "Compare material options, estimate clarity, labor scope, disposal, trim details, warranty terms, licensing, insurance, and provider availability."
+            },
+            {
+                question: "Does Paneli provide siding estimates?",
+                answer:
+                    "No. Paneli helps organize provider comparison, but estimates and project recommendations come directly from independent siding providers."
             }
         ],
 

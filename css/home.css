@@ -135,173 +135,6 @@
 }
 
 /* ==================================================
-   PANELI LAYERS SECTION
-================================================== */
-
-.paneli-layers {
-    position: relative;
-    overflow: hidden;
-}
-
-.paneli-layers::before {
-    position: absolute;
-    top: 12%;
-    right: -160px;
-    width: 420px;
-    height: 420px;
-    border-radius: 999px;
-    background: rgba(201, 167, 242, 0.13);
-    filter: blur(48px);
-    content: "";
-    pointer-events: none;
-}
-
-.paneli-layers__grid {
-    display: grid;
-    grid-template-columns: minmax(260px, 0.42fr) minmax(0, 1fr);
-    gap: clamp(28px, 6vw, 78px);
-    align-items: start;
-}
-
-.paneli-layers__intro {
-    position: sticky;
-    top: calc(var(--header-height) + 28px);
-    display: grid;
-    gap: 18px;
-}
-
-.paneli-layers__intro h2 {
-    color: var(--color-white);
-    font-size: clamp(2rem, 4vw, 4.25rem);
-    font-weight: 620;
-    line-height: 1;
-    letter-spacing: -0.06em;
-}
-
-.paneli-layers__intro p {
-    color: var(--color-muted);
-    font-size: 1rem;
-}
-
-.paneli-layers__track {
-    display: grid;
-    gap: 14px;
-}
-
-.layer-step {
-    position: relative;
-    display: grid;
-    grid-template-columns: 82px minmax(0, 1fr) auto;
-    gap: clamp(16px, 3vw, 30px);
-    align-items: center;
-    overflow: hidden;
-    min-height: 116px;
-    border: 1px solid var(--color-line);
-    border-radius: 0 28px 28px 0;
-    background:
-        linear-gradient(90deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035)),
-        linear-gradient(135deg, rgba(64, 39, 77, 0.78), rgba(27, 16, 34, 0.64));
-    padding: 22px 24px;
-    box-shadow: var(--shadow-soft);
-    transition:
-        transform 220ms ease,
-        border-color 220ms ease,
-        background 220ms ease;
-}
-
-.layer-step::before {
-    position: absolute;
-    inset: 0 auto 0 0;
-    width: 4px;
-    transform: scaleY(0.28);
-    transform-origin: center;
-    background: var(--gradient-accent);
-    content: "";
-    transition: transform 220ms ease;
-}
-
-.layer-step::after {
-    position: absolute;
-    right: 24px;
-    bottom: 20px;
-    left: 24px;
-    height: 1px;
-    background:
-        linear-gradient(90deg,
-            transparent,
-            rgba(143, 200, 232, 0.45),
-            transparent);
-    opacity: 0;
-    content: "";
-    transition: opacity 220ms ease;
-}
-
-.layer-step:hover {
-    transform: translateX(8px);
-    border-color: var(--color-accent-border);
-    background:
-        radial-gradient(circle at 12% 0%, rgba(201, 167, 242, 0.16), transparent 18rem),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.045));
-}
-
-.layer-step:hover::before {
-    transform: scaleY(1);
-}
-
-.layer-step:hover::after {
-    opacity: 1;
-}
-
-.layer-step__number {
-    color: var(--color-secondary-hover);
-    font-size: clamp(1.4rem, 3vw, 2.4rem);
-    font-weight: 760;
-    line-height: 1;
-    letter-spacing: -0.05em;
-}
-
-.layer-step__body {
-    display: grid;
-    gap: 6px;
-}
-
-.layer-step__body h3 {
-    color: var(--color-white);
-    font-size: clamp(1.18rem, 2vw, 1.65rem);
-    font-weight: 650;
-    line-height: 1.08;
-    letter-spacing: -0.04em;
-}
-
-.layer-step__body p {
-    max-width: 580px;
-    color: rgba(248, 245, 251, 0.68);
-    font-size: 0.96rem;
-}
-
-.layer-step__arrow {
-    display: inline-flex;
-    width: 42px;
-    height: 42px;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 42px;
-    border: 1px solid var(--color-line);
-    border-radius: 999px;
-    color: var(--color-accent-hover);
-    transition:
-        transform 220ms ease,
-        background 220ms ease,
-        color 220ms ease;
-}
-
-.layer-step:hover .layer-step__arrow {
-    transform: translateX(3px);
-    background: var(--color-accent);
-    color: var(--color-bg-deep);
-}
-
-/* ==================================================
    HOME SERVICE GALLERY
 ================================================== */
 
@@ -1101,5 +934,205 @@
     .before-choose__content h2,
     .paneli-layers__intro h2 {
         letter-spacing: -0.055em;
+    }
+}
+
+/* ==================================================
+   PANELI LAYERS SECTION
+================================================== */
+
+.paneli-layers {
+    position: relative;
+    z-index: 1;
+    padding: 0 0 24px;
+    margin: 0;
+    background: var(--color-bg-deep);
+}
+
+.paneli-layers__wrap {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: min(calc(100% - 64px), 1740px);
+    margin-inline: auto;
+    border-top: 4px solid var(--color-accent);
+    background:
+        radial-gradient(circle at 8% 0%, rgba(201, 167, 242, 0.15), transparent 26rem),
+        linear-gradient(90deg, rgba(22, 18, 43, 0.96), rgba(12, 13, 30, 0.96));
+    box-shadow:
+        0 26px 70px rgba(7, 5, 18, 0.46),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.layer-step {
+    position: relative;
+    display: flex;
+    min-height: 184px;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 16px;
+    overflow: hidden;
+    border-right: 1px solid rgba(255, 255, 255, 0.14);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
+    padding: 30px 44px 26px 44px;
+    box-shadow: none;
+    transition:
+        background 220ms ease,
+        border-color 220ms ease;
+}
+
+.layer-step:last-child {
+    border-right: 0;
+}
+
+.layer-step::before {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
+            rgba(201, 167, 242, 0.12),
+            transparent 36%);
+    opacity: 0;
+    content: "";
+    pointer-events: none;
+    transition: opacity 180ms ease;
+}
+
+.layer-step::after {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, transparent, rgba(143, 200, 232, 0.06), transparent);
+    opacity: 0;
+    content: "";
+    pointer-events: none;
+    transition: opacity 220ms ease;
+}
+
+.layer-step:hover {
+    background:
+        radial-gradient(circle at 20% 0%, rgba(201, 167, 242, 0.12), transparent 18rem),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018));
+}
+
+.layer-step:hover::before,
+.layer-step:hover::after {
+    opacity: 1;
+}
+
+.layer-step__number {
+    position: relative;
+    z-index: 2;
+    display: block;
+    color: var(--color-accent-hover);
+    font-size: clamp(1.35rem, 2vw, 2rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.03em;
+}
+
+.layer-step__body {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 14px;
+}
+
+.layer-step__body h3 {
+    max-width: 230px;
+    color: var(--color-white);
+    font-size: clamp(1.08rem, 1.55vw, 1.45rem);
+    font-weight: 500;
+    line-height: 1.14;
+    letter-spacing: -0.035em;
+}
+
+.layer-step__body p {
+    max-width: 250px;
+    color: rgba(248, 245, 251, 0.72);
+    font-size: 0.82rem;
+    font-weight: 400;
+    line-height: 1.55;
+}
+
+.layer-step__arrow {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    width: fit-content;
+    margin-top: auto;
+    color: var(--color-accent-hover);
+    font-size: 1.72rem;
+    font-weight: 300;
+    line-height: 1;
+    transition:
+        transform 180ms ease,
+        color 180ms ease;
+}
+
+.layer-step:hover .layer-step__arrow {
+    transform: translateX(8px);
+    color: var(--color-secondary-hover);
+}
+
+.layer-step.is-visible {
+    border-color: rgba(201, 167, 242, 0.24);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1180px) {
+   
+
+    .paneli-layers__wrap {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: min(calc(100% - 40px), 980px);
+    }
+
+    .layer-step:nth-child(2) {
+        border-right: 0;
+    }
+
+    .layer-step:nth-child(1),
+    .layer-step:nth-child(2) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+}
+
+@media (max-width: 680px) {
+    .paneli-layers {
+        margin-bottom: 64px;
+    }
+
+    .paneli-layers__wrap {
+        grid-template-columns: 1fr;
+        width: min(calc(100% - 28px), 520px);
+    }
+
+    .layer-step,
+    .layer-step:nth-child(2) {
+        min-height: auto;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+        padding: 24px 24px 22px;
+    }
+
+    .layer-step:last-child {
+        border-bottom: 0;
+    }
+
+    .layer-step__body h3 {
+        max-width: none;
+        font-size: 1.28rem;
+    }
+
+    .layer-step__body p {
+        max-width: none;
+    }
+
+    .layer-step__arrow {
+        margin-top: 8px;
     }
 }
