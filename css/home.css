@@ -1406,13 +1406,12 @@
     align-items: center;
     justify-content: center;
     border-radius: 999px;
-    background: var(--color-accent);
-    color: #130a19;
+    background: transparent;
+    color: #ffffff;
     font-size: 0;
     font-weight: 800;
     transition:
         transform 180ms ease,
-        background 180ms ease,
         box-shadow 180ms ease;
 }
 
@@ -1435,7 +1434,6 @@
 
 .home-service-gallery .service-photo-card__link:hover .service-photo-card__cta {
     transform: translateX(4px);
-    background: var(--color-accent-hover);
     box-shadow: 0 0 24px rgba(201, 167, 242, 0.35);
 }
 

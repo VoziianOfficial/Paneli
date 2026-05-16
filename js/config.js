@@ -111,7 +111,7 @@ window.SITE_CONFIG = {
     services: [
         {
             id: "siding-installation",
-            title: "Siding Installation",
+            title: "Installation",
             shortTitle: "Installation",
             href: "siding-installation.html",
             icon: "layers",
@@ -149,7 +149,7 @@ window.SITE_CONFIG = {
         },
         {
             id: "siding-replacement",
-            title: "Siding Replacement",
+            title: "Replacement",
             shortTitle: "Replacement",
             href: "siding-replacement.html",
             icon: "refresh-cw",
@@ -159,7 +159,7 @@ window.SITE_CONFIG = {
             summary:
                 "Compare provider options for removing old siding and reviewing replacement exterior cladding choices.",
             cardText:
-                "Review provider options for replacement scope, disposal, materials, repair notes, and timeline planning.",
+                "Review provider options for replacement scope, disposal, materials, repair notes.",
             heroTitle: "Compare Siding Replacement Providers",
             heroText:
                 "Paneli helps homeowners compare independent siding provider options for replacement projects. Homeowners choose and verify provider details directly.",
@@ -187,7 +187,7 @@ window.SITE_CONFIG = {
         },
         {
             id: "siding-repair",
-            title: "Siding Repair",
+            title: "Repair",
             shortTitle: "Repair",
             href: "siding-repair.html",
             icon: "wrench",
@@ -197,7 +197,7 @@ window.SITE_CONFIG = {
             summary:
                 "Compare provider options for damaged panels, loose sections, moisture concerns, and visible exterior wear.",
             cardText:
-                "Explore provider options for localized siding issues, repair scope, inspection notes, and estimate clarity.",
+                "Explore provider options for localized siding issues, repair scope, inspection notes.",
             heroTitle: "Compare Siding Repair Providers",
             heroText:
                 "Paneli helps homeowners connect with independent provider options for siding repair needs. Any repair details should be confirmed directly with the selected provider.",
@@ -225,7 +225,7 @@ window.SITE_CONFIG = {
         },
         {
             id: "siding-consultation",
-            title: "Siding Consultation",
+            title: "Consultation",
             shortTitle: "Consultation",
             href: "siding-consultation.html",
             icon: "scan-search",
@@ -417,6 +417,11 @@ window.SITE_CONFIG = {
                 question: "Are estimates from providers usually free?",
                 answer:
                     "That depends on each independent provider. Homeowners should ask providers directly whether estimates, consultations, or site visits have fees."
+            },
+            {
+                question: "How many siding estimates should I compare?",
+                answer:
+                    "There is no single rule, but homeowners often compare more than one estimate so they can review scope, materials, labor, timelines, and warranty terms side by side. Ask each independent provider for a written breakdown."
             }
         ],
 
