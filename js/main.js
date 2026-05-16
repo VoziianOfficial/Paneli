@@ -748,8 +748,8 @@
         addPairs(legacy.addresses, addressFull);
 
         const defaultCompanyNames = ["Paneli Provider Matching LLC", "Paneli"];
-        const defaultPhones = ["(888) 555-0186", "+18885550186", "tel:+18885550186"];
-        const defaultEmails = ["hello@paneli.example", "mailto:hello@paneli.example"];
+        const defaultPhones = ["(888) 555-0186", "+18885550186"];
+        const defaultEmails = ["hello@paneli.example"];
         const defaultAddresses = ["2184 W Cedar Frame Ave", "2184 W Cedar Frame Ave, Denver, CO 80202, USA"];
 
         addPairs(defaultCompanyNames, companyName);
@@ -803,7 +803,20 @@
                 if (!element.hasAttribute(attributeName)) return;
 
                 const currentValue = element.getAttribute(attributeName);
-                const nextValue = replaceTextValue(currentValue, replacements);
+                let nextValue = replaceTextValue(currentValue, replacements);
+
+                if (attributeName === "href" && typeof currentValue === "string") {
+                    const trimmed = currentValue.trim();
+
+                    if (trimmed.startsWith("tel:") || trimmed.startsWith("mailto:")) {
+                        nextValue = String(currentValue || "");
+
+                        replacements.forEach(([from, to]) => {
+                            if (!from || !to || from === to) return;
+                            if (trimmed === from) nextValue = to;
+                        });
+                    }
+                }
 
                 if (nextValue !== currentValue) {
                     element.setAttribute(attributeName, nextValue);
