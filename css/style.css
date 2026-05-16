@@ -1442,8 +1442,11 @@ main {
     border: 1px solid var(--color-line);
     border-radius: var(--radius-xl);
     background:
-        linear-gradient(90deg, rgba(27, 16, 34, 0.94), rgba(37, 21, 46, 0.8)),
-        var(--cta-image, none);
+        linear-gradient(90deg,
+            rgba(15, 8, 22, 0.92) 0%,
+            rgba(27, 16, 34, 0.78) 46%,
+            rgba(27, 16, 34, 0.52) 100%),
+        var(--cta-image, url("../assets/images/cta-siding-exterior.jpg"));
     background-position: center;
     background-size: cover;
     padding: clamp(28px, 5vw, 54px);
@@ -1455,8 +1458,8 @@ main {
     inset: 0;
     z-index: -1;
     background:
-        radial-gradient(circle at 18% 20%, rgba(201, 167, 242, 0.24), transparent 26rem),
-        radial-gradient(circle at 84% 20%, rgba(143, 200, 232, 0.18), transparent 22rem);
+        radial-gradient(circle at 18% 20%, rgba(201, 167, 242, 0.28), transparent 26rem),
+        radial-gradient(circle at 84% 20%, rgba(143, 200, 232, 0.2), transparent 22rem);
     content: "";
 }
 
@@ -2287,3 +2290,4 @@ body {
         flex-basis: 138px !important;
     }
 }
+
