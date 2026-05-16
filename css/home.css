@@ -1,15 +1,10 @@
-/* ==================================================
-   HOME PAGE
-   File: /css/home.css
-================================================== */
+
 
 .home-page {
     position: relative;
 }
 
-/* ==================================================
-   SECTION SPACING OVERRIDES
-================================================== */
+
 
 .section.home-faq,
 .section.not-contractor {
@@ -21,9 +16,7 @@
     padding-block-end: clamp(35px, 4vw, 63px);
 }
 
-/* ==================================================
-   HOME HERO
-================================================== */
+
 
 .home-hero {
     min-height: clamp(610px, 78vh, 820px);
@@ -148,9 +141,7 @@
     font-style: normal;
 }
 
-/* ==================================================
-   PROVIDER FIT — HORIZONTAL LIGHT PANEL
-================================================== */
+
 
 .provider-fit {
     padding: 0 18px clamp(56px, 6vw, 92px);
@@ -271,7 +262,7 @@
     line-height: 1.65;
 }
 
-/* TABLET */
+
 @media (max-width: 1180px) {
     .provider-fit__panel {
         grid-template-columns: 1fr 1fr;
@@ -298,7 +289,7 @@
     }
 }
 
-/* MOBILE */
+
 @media (max-width: 760px) {
     .provider-fit {
         padding: 0 14px 58px;
@@ -355,9 +346,7 @@
 }
 
 
-/* ==================================================
-   BEFORE YOU CHOOSE — HORIZONTAL STRIP
-================================================== */
+
 
 .before-choose {
     position: relative;
@@ -458,7 +447,7 @@
     display: block;
 }
 
-/* TABLET */
+
 @media (max-width: 980px) {
     .before-choose__inner {
         grid-template-columns: 1fr;
@@ -478,7 +467,7 @@
     }
 }
 
-/* MOBILE */
+
 @media (max-width: 680px) {
     .before-choose {
         padding: 34px 14px;
@@ -518,9 +507,7 @@
 }
 
 
-/* ==================================================
-   NOT A CONTRACTOR — EDITORIAL STRIP
-================================================== */
+
 
 .not-contractor {
     position: relative;
@@ -643,7 +630,7 @@
     line-height: 1.55;
 }
 
-/* TABLET */
+
 @media (max-width: 1020px) {
     .not-contractor__inner {
         grid-template-columns: 1fr;
@@ -669,7 +656,7 @@
     }
 }
 
-/* MOBILE */
+
 @media (max-width: 680px) {
     .not-contractor {
         padding: 38px 14px;
@@ -712,9 +699,7 @@
     }
 }
 
-/* ==================================================
-   PANEL DETAIL / NUMBERS
-================================================== */
+
 
 .panel-detail {
     position: relative;
@@ -801,9 +786,7 @@
     line-height: 1.25;
 }
 
-/* ==================================================
-   HOME FINAL CTA
-================================================== */
+
 
 .home-final-cta .cta-strip {
     --cta-image: url("../assets/images/cta-siding-exterior.jpg");
@@ -826,9 +809,7 @@
     content: "";
 }
 
-/* ==================================================
-   RESPONSIVE
-================================================== */
+
 
 @media (max-width: 1180px) {
     .home-hero__layout {
@@ -1043,9 +1024,7 @@
     }
 }
 
-/* ==================================================
-   PANELI LAYERS SECTION
-================================================== */
+
 
 .paneli-layers {
     position: relative;
@@ -1187,7 +1166,7 @@
     border-color: rgba(201, 167, 242, 0.24);
 }
 
-/* RESPONSIVE */
+
 
 @media (max-width: 1180px) {
    
@@ -1243,9 +1222,7 @@
     }
 }
 
-/* ==================================================
-   HOME SERVICE GALLERY — DARK PHOTO CARDS
-================================================== */
+
 
 .home-service-gallery {
     position: relative;
@@ -1443,7 +1420,7 @@
     box-shadow: 0 0 24px rgba(201, 167, 242, 0.35);
 }
 
-/* RESPONSIVE */
+
 
 @media (max-width: 1180px) {
     .home-service-gallery__top {

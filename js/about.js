@@ -11,9 +11,7 @@
         initPointerGlow();
     }
 
-    /* ==================================================
-       ABOUT SLIDESHOW
-    ================================================== */
+    
 
     function initAboutSlideshow() {
         const root = document.querySelector("[data-about-slideshow]");
@@ -167,9 +165,7 @@
         return index;
     }
 
-    /* ==================================================
-       SECTION NAV ACTIVE STATE
-    ================================================== */
+    
 
     function initSectionNavProgress() {
         const nav = document.querySelector("[data-section-nav]");
@@ -211,9 +207,7 @@
         sections.forEach(({ target }) => observer.observe(target));
     }
 
-    /* ==================================================
-       POINTER GLOW
-    ================================================== */
+    
 
     function initPointerGlow() {
         const elements = document.querySelectorAll(

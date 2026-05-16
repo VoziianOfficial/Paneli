@@ -12,9 +12,7 @@
         initPhotoCardPointerGlow();
     }
 
-    /* ==================================================
-       HERO PARALLAX
-    ================================================== */
+    
 
     function initHeroParallax() {
         const hero = document.querySelector("[data-home-hero]");
@@ -52,9 +50,7 @@
         window.addEventListener("resize", requestUpdate);
     }
 
-    /* ==================================================
-       PANELI LAYERS ACTIVE STATE
-    ================================================== */
+    
 
     function initLayerStepObserver() {
         const steps = document.querySelectorAll("[data-layer-step]");
@@ -76,9 +72,7 @@
         steps.forEach((step) => observer.observe(step));
     }
 
-    /* ==================================================
-       SECTION NAV ACTIVE PROGRESS
-    ================================================== */
+    
 
     function initSectionNavProgress() {
         const nav = document.querySelector("[data-section-nav]");
@@ -118,9 +112,7 @@
         sections.forEach(({ target }) => observer.observe(target));
     }
 
-    /* ==================================================
-       PHOTO CARD POINTER GLOW
-    ================================================== */
+    
 
     function initPhotoCardPointerGlow() {
         const cards = document.querySelectorAll(".service-photo-card__link, .home-hero__proof-card, .layer-step");

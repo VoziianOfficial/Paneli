@@ -36,9 +36,7 @@
         document.documentElement.classList.add("site-ready");
     }
 
-    /* ==================================================
-       PAGE HELPERS
-    ================================================== */
+    
 
     function getCurrentPage() {
         const path = window.location.pathname;
@@ -91,9 +89,7 @@
         }
     }
 
-    /* ==================================================
-       HEADER
-    ================================================== */
+    
 
     function renderHeader() {
         const mount = document.querySelector("[data-site-header]");
@@ -361,9 +357,7 @@
         });
     }
 
-    /* ==================================================
-       MOBILE MENU
-    ================================================== */
+    
 
     function initMobileMenu() {
         const menu = document.querySelector("[data-mobile-menu]");
@@ -456,9 +450,7 @@
         }
     }
 
-    /* ==================================================
-       FOOTER
-    ================================================== */
+    
 
     function renderFooter() {
         const mount = document.querySelector("[data-site-footer]");
@@ -580,9 +572,7 @@
     `;
     }
 
-    /* ==================================================
-       CONFIG INJECTION
-    ================================================== */
+    
 
     function injectDynamicContent() {
         setText("[data-company-name]", config.companyName);
@@ -690,9 +680,7 @@
         });
     }
 
-    /* ==================================================
-       SERVICE CARDS
-    ================================================== */
+    
 
     function renderServiceCards() {
         document.querySelectorAll("[data-service-cards]").forEach((mount) => {
@@ -729,9 +717,7 @@
         });
     }
 
-    /* ==================================================
-       FAQ
-    ================================================== */
+    
 
     function renderFaqBlocks() {
         document.querySelectorAll("[data-faq-list]").forEach((mount) => {
@@ -817,9 +803,7 @@
         });
     }
 
-    /* ==================================================
-       POLICY BANNER
-    ================================================== */
+    
 
     function renderPolicyBanner() {
         const mount = document.querySelector("[data-policy-banner]");
@@ -879,9 +863,7 @@
         }
     }
 
-    /* ==================================================
-       FORMS
-    ================================================== */
+    
 
     function initForms() {
         document.querySelectorAll("[data-paneli-form]").forEach((form) => {
@@ -1015,9 +997,7 @@
         });
     }
 
-    /* ==================================================
-       SMOOTH ANCHORS
-    ================================================== */
+    
 
     function initSmoothAnchors() {
         document.querySelectorAll('a[href^="#"]').forEach((link) => {
@@ -1056,9 +1036,7 @@
         });
     }
 
-    /* ==================================================
-       ICONS
-    ================================================== */
+    
 
     function getIcon(name) {
         const icons = {

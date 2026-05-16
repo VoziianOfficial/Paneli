@@ -13,9 +13,7 @@
         initSubmitStepObserver();
     }
 
-    /* ==================================================
-       SECTION NAV ACTIVE STATE
-    ================================================== */
+    
 
     function initSectionNavProgress() {
         const nav = document.querySelector("[data-section-nav]");
@@ -57,11 +55,7 @@
         sections.forEach(({ target }) => observer.observe(target));
     }
 
-    /* ==================================================
-       PREFILL SERVICE FROM URL
-       Example:
-       contact.html?service=siding-installation
-    ================================================== */
+    
 
     function initContactFormPrefill() {
         const form = document.querySelector("[data-paneli-form]");
@@ -88,9 +82,7 @@
         }
     }
 
-    /* ==================================================
-       JUMP TO FORM LINKS
-    ================================================== */
+    
 
     function initJumpToFormLinks() {
         const links = document.querySelectorAll("[data-jump-to-form]");
@@ -118,9 +110,7 @@
         });
     }
 
-    /* ==================================================
-       CONTACT OPTION POINTER GLOW
-    ================================================== */
+    
 
     function initContactOptionGlow() {
         const elements = document.querySelectorAll(
@@ -152,9 +142,7 @@
         });
     }
 
-    /* ==================================================
-       STEP VISIBILITY
-    ================================================== */
+    
 
     function initSubmitStepObserver() {
         const steps = document.querySelectorAll("[data-submit-step]");

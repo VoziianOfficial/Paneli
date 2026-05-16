@@ -12,9 +12,7 @@
         initPointerGlow();
     }
 
-    /* ==================================================
-       SECTION NAV ACTIVE STATE
-    ================================================== */
+    
 
     function initSectionNavProgress() {
         const nav = document.querySelector("[data-section-nav]");
@@ -56,9 +54,7 @@
         sections.forEach(({ target }) => observer.observe(target));
     }
 
-    /* ==================================================
-       MATERIAL MOOD SPLIT
-    ================================================== */
+    
 
     function initMaterialMoodPanels() {
         const wrapper = document.querySelector("[data-material-mood]");
@@ -87,9 +83,7 @@
         wrapper.addEventListener("mouseleave", clearPanels);
     }
 
-    /* ==================================================
-       ESTIMATE STRIP FOCUS
-    ================================================== */
+    
 
     function initEstimatePointFocus() {
         const estimateItems = document.querySelectorAll(".estimate-strip__item");
@@ -109,9 +103,7 @@
         });
     }
 
-    /* ==================================================
-       POINTER GLOW
-    ================================================== */
+    
 
     function initPointerGlow() {
         const elements = document.querySelectorAll(

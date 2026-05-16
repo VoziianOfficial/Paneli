@@ -12,9 +12,7 @@
         initLegalPrintLinks();
     }
 
-    /* ==================================================
-       HELPERS
-    ================================================== */
+    
 
     function getCurrentPage() {
         const path = window.location.pathname;
@@ -29,9 +27,7 @@
             .trim();
     }
 
-    /* ==================================================
-       ACTIVE LEGAL LINKS
-    ================================================== */
+    
 
     function initActiveLegalLinks() {
         const currentPage = normalizeHref(getCurrentPage());
@@ -46,9 +42,7 @@
         });
     }
 
-    /* ==================================================
-       LEGAL SECTION PROGRESS
-    ================================================== */
+    
 
     function initLegalSectionProgress() {
         const nav = document.querySelector("[data-legal-section-nav]");
@@ -93,9 +87,7 @@
         sections.forEach(({ target }) => observer.observe(target));
     }
 
-    /* ==================================================
-       LEGAL CARD POINTER GLOW
-    ================================================== */
+    
 
     function initLegalCardGlow() {
         const elements = document.querySelectorAll(
@@ -127,9 +119,7 @@
         });
     }
 
-    /* ==================================================
-       PRINT LINKS
-    ================================================== */
+    
 
     function initLegalPrintLinks() {
         document.querySelectorAll("[data-print-page]").forEach((button) => {

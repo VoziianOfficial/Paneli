@@ -35,9 +35,7 @@
         document.documentElement.classList.add("service-page-ready");
     }
 
-    /* ==================================================
-       HELPERS
-    ================================================== */
+    
 
     function getCurrentPage() {
         const path = window.location.pathname;
@@ -82,9 +80,7 @@
         });
     }
 
-    /* ==================================================
-       SERVICE CONTENT INJECTION
-    ================================================== */
+    
 
     function injectServiceContent(service, config) {
         setText("[data-service-title]", service.title);
@@ -116,9 +112,7 @@
         });
     }
 
-    /* ==================================================
-       PROVIDER EVALUATION
-    ================================================== */
+    
 
     function renderEvaluationList(service) {
         const mounts = document.querySelectorAll("[data-service-evaluation-list]");
@@ -155,9 +149,7 @@
         return titles[index] || "Comparison detail";
     }
 
-    /* ==================================================
-       CHOICE FACTORS
-    ================================================== */
+    
 
     function renderChoiceFactors(service) {
         const mounts = document.querySelectorAll("[data-service-choice-factors]");
@@ -210,9 +202,7 @@
         return "Compare this detail across providers before deciding which company feels like the best fit.";
     }
 
-    /* ==================================================
-       ESTIMATE STRIP
-    ================================================== */
+    
 
     function renderEstimateStrip() {
         const mounts = document.querySelectorAll("[data-service-estimate-strip]");
@@ -251,9 +241,7 @@
         });
     }
 
-    /* ==================================================
-       HOMEOWNER QUESTIONS
-    ================================================== */
+    
 
     function renderHomeownerQuestions(service) {
         const mounts = document.querySelectorAll("[data-service-questions]");
@@ -309,9 +297,7 @@
         return "Ask this directly so each provider can explain their own process, availability, and scope.";
     }
 
-    /* ==================================================
-       RELATED SERVICES
-    ================================================== */
+    
 
     function renderRelatedServices(currentService, config) {
         const mounts = document.querySelectorAll("[data-related-services]");
@@ -344,9 +330,7 @@
         });
     }
 
-    /* ==================================================
-       SERVICE FAQ
-    ================================================== */
+    
 
     function renderServiceFaq(service) {
         const mounts = document.querySelectorAll("[data-service-faq-list]");
@@ -452,9 +436,7 @@
         mount.appendChild(script);
     }
 
-    /* ==================================================
-       CONTACT LINKS
-    ================================================== */
+    
 
     function initServiceContactLinks(service) {
         const href = `contact.html?service=${encodeURIComponent(service.id)}#contact-form`;
@@ -464,9 +446,7 @@
         });
     }
 
-    /* ==================================================
-       SECTION NAV ACTIVE STATE
-    ================================================== */
+    
 
     function initSectionNavProgress() {
         const nav = document.querySelector("[data-section-nav]");
@@ -508,9 +488,7 @@
         sections.forEach(({ target }) => observer.observe(target));
     }
 
-    /* ==================================================
-       GLOW / OBSERVER
-    ================================================== */
+    
 
     function initServicePageGlow() {
         const elements = document.querySelectorAll(
