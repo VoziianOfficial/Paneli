@@ -2162,106 +2162,8 @@ main {
         animation-iteration-count: 1 !important;
     }
 }
-
 /* ==================================================
-   LOGO ONLY HEADER
-================================================== */
-
-:root {
-    --header-height: 104px;
-}
-
-body {
-    padding-top: var(--header-height);
-}
-
-.brand-link {
-    gap: 0 !important;
-}
-
-.brand-link__text {
-    display: none !important;
-}
-
-.brand-link__mark {
-    width: 92px !important;
-    height: 92px !important;
-    flex: 0 0 92px !important;
-}
-
-.brand-link__mark img {
-    width: 92px !important;
-    height: 92px !important;
-    max-width: none !important;
-    object-fit: contain !important;
-}
-
-.site-header {
-    min-height: var(--header-height);
-}
-
-.site-header__inner {
-    min-height: var(--header-height);
-}
-
-/* при скролле можно чуть меньше */
-.site-header.is-scrolled {
-    min-height: 92px;
-}
-
-.site-header.is-scrolled .site-header__inner {
-    min-height: 92px;
-}
-
-.site-header.is-scrolled .brand-link__mark,
-.site-header.is-scrolled .brand-link__mark img {
-    width: 82px !important;
-    height: 82px !important;
-    flex-basis: 82px !important;
-}
-
-/* mobile */
-@media (max-width: 680px) {
-    :root {
-        --header-height: 82px;
-    }
-
-    body {
-        padding-top: var(--header-height);
-    }
-
-    .site-header,
-    .site-header__inner {
-        min-height: var(--header-height);
-    }
-
-    .brand-link__mark {
-        width: 78px !important;
-        height: 68px !important;
-        flex: 0 0 68px !important;
-    }
-
-    .brand-link__mark img {
-        width: 68px !important;
-        height: 68px !important;
-        max-width: none !important;
-    }
-
-    .site-header.is-scrolled,
-    .site-header.is-scrolled .site-header__inner {
-        min-height: 76px;
-    }
-
-    .site-header.is-scrolled .brand-link__mark,
-    .site-header.is-scrolled .brand-link__mark img {
-        width: 62px !important;
-        height: 62px !important;
-        flex-basis: 62px !important;
-    }
-}
-
-/* ==================================================
-   LOGO ONLY HEADER — BIGGER
+   STABLE LOGO HEADER
 ================================================== */
 
 :root {
@@ -2272,6 +2174,42 @@ body {
     padding-top: var(--header-height);
 }
 
+[data-site-header] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5000;
+}
+
+.site-header {
+    min-height: var(--header-height);
+    background:
+        linear-gradient(180deg, rgba(37, 21, 46, 0.92), rgba(27, 16, 34, 0.82));
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition:
+        background 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.site-header__inner {
+    min-height: var(--header-height);
+}
+
+.site-header.is-scrolled {
+    min-height: var(--header-height);
+    border-color: rgba(255, 255, 255, 0.16);
+    background:
+        linear-gradient(180deg, rgba(27, 16, 34, 0.96), rgba(27, 16, 34, 0.9));
+    box-shadow: 0 14px 50px rgba(6, 2, 10, 0.32);
+}
+
+.site-header.is-scrolled .site-header__inner {
+    min-height: var(--header-height);
+}
+
 .brand-link {
     gap: 0 !important;
 }
@@ -2280,11 +2218,13 @@ body {
     display: none !important;
 }
 
-/* сам логотип широкий, не квадратный */
 .brand-link__mark {
     width: 190px !important;
     height: 58px !important;
     flex: 0 0 190px !important;
+    transition:
+        transform 220ms ease,
+        filter 220ms ease;
 }
 
 .brand-link__mark img {
@@ -2292,33 +2232,36 @@ body {
     height: 58px !important;
     max-width: none !important;
     object-fit: contain !important;
+    transition:
+        filter 220ms ease,
+        opacity 220ms ease;
 }
 
-.site-header {
-    min-height: var(--header-height);
-}
-
-.site-header__inner {
-    min-height: var(--header-height);
-}
-
-/* при скролле чуть компактнее */
-.site-header.is-scrolled {
-    min-height: 86px;
-}
-
-.site-header.is-scrolled .site-header__inner {
-    min-height: 86px;
-}
-
+/* ВАЖНО: при скролле НЕ уменьшаем логотип */
 .site-header.is-scrolled .brand-link__mark,
 .site-header.is-scrolled .brand-link__mark img {
-    width: 172px !important;
-    height: 52px !important;
-    flex-basis: 172px !important;
+    width: 190px !important;
+    height: 58px !important;
+    flex-basis: 190px !important;
 }
 
-/* mobile */
+.brand-link:hover .brand-link__mark {
+    transform: translateY(-1px) scale(1.025);
+    filter:
+        drop-shadow(0 0 12px rgba(201, 167, 242, 0.42)) drop-shadow(0 0 18px rgba(143, 200, 232, 0.24));
+}
+
+.brand-link:hover .brand-link__mark img {
+    filter:
+        brightness(1.14) saturate(1.24) hue-rotate(10deg);
+}
+
+.brand-link:focus-visible .brand-link__mark {
+    transform: translateY(-1px) scale(1.025);
+    filter:
+        drop-shadow(0 0 12px rgba(201, 167, 242, 0.45)) drop-shadow(0 0 20px rgba(143, 200, 232, 0.28));
+}
+
 @media (max-width: 680px) {
     :root {
         --header-height: 78px;
@@ -2329,64 +2272,18 @@ body {
     }
 
     .site-header,
-    .site-header__inner {
+    .site-header__inner,
+    .site-header.is-scrolled,
+    .site-header.is-scrolled .site-header__inner {
         min-height: var(--header-height);
     }
 
-    .brand-link__mark {
-        width: 138px !important;
-        height: 42px !important;
-        flex: 0 0 138px !important;
-    }
-
-    .brand-link__mark img {
-        width: 138px !important;
-        height: 42px !important;
-        max-width: none !important;
-    }
-
-    .site-header.is-scrolled,
-    .site-header.is-scrolled .site-header__inner {
-        min-height: 72px;
-    }
-
+    .brand-link__mark,
+    .brand-link__mark img,
     .site-header.is-scrolled .brand-link__mark,
     .site-header.is-scrolled .brand-link__mark img {
-        width: 124px !important;
-        height: 38px !important;
-        flex-basis: 124px !important;
+        width: 138px !important;
+        height: 42px !important;
+        flex-basis: 138px !important;
     }
-}
-
-.brand-link__mark {
-    transition:
-        transform 220ms ease,
-        filter 220ms ease;
-}
-
-.brand-link__mark img {
-    transition:
-        transform 220ms ease,
-        filter 220ms ease,
-        opacity 220ms ease;
-}
-
-/* hover на весь logo link */
-.brand-link:hover .brand-link__mark {
-    transform: translateY(-1px) scale(1.035);
-    filter:
-        drop-shadow(0 0 12px rgba(201, 167, 242, 0.42)) drop-shadow(0 0 18px rgba(143, 200, 232, 0.24));
-}
-
-/* смена оттенка самого svg-img */
-.brand-link:hover .brand-link__mark img {
-    filter:
-        brightness(1.16) saturate(1.28) hue-rotate(14deg);
-}
-
-/* active/focus для клавиатуры */
-.brand-link:focus-visible .brand-link__mark {
-    transform: translateY(-1px) scale(1.035);
-    filter:
-        drop-shadow(0 0 12px rgba(201, 167, 242, 0.45)) drop-shadow(0 0 20px rgba(143, 200, 232, 0.28));
 }
