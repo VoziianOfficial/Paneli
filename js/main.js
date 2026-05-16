@@ -602,9 +602,19 @@
 
     function replaceInObject(target, replacements) {
         if (!target || typeof target !== "object") return;
+      Object.keys(target).forEach((key) => {
+        if (key === "legacyReplace") return;
 
-        Object.keys(target).forEach((key) => {
-            if (key === "legacyReplace") return;
+        const skipKeys = new Set([
+          "href",
+          "logo",
+          "favicon",
+          "image",
+          "heroImage",
+          "src"
+        ]);
+
+        if (skipKeys.has(key)) return;
 
             const value = target[key];
 
