@@ -2865,11 +2865,14 @@ article:hover [class*="-row__number"] {
 
 /* 6. Контент поверх бликов */
 .service-photo-card__content,
-.material-panel__content,
 .choice-factor>*,
 .before-submit-row>*,
 .service-questions__list>*>* {
     position: relative;
+    z-index: 5;
+}
+
+.material-panel__content {
     z-index: 5;
 }
 
@@ -2885,4 +2888,8 @@ article:hover [class*="-row__number"] {
         0 16px 36px rgba(0, 0, 0, 0.34),
         0 0 24px rgba(94, 168, 207, 0.22),
         inset 0 1px 0 rgba(255, 255, 255, 0.22) !important;
+}
+
+.faq-button__icon {
+    color: rgba(27, 16, 34, 0.86) !important;
 }
