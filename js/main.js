@@ -737,6 +737,7 @@
 
             items.forEach((item) => {
                 if (!item || !replacement || item === replacement) return;
+                if (String(replacement).includes(String(item))) return;
                 pairs.push([String(item), String(replacement)]);
             });
         };
