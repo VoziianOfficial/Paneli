@@ -701,11 +701,16 @@
     }
   
   function repairContactLinks() {
-    const phoneHref = config.phone && config.phone.href ? config.phone.href : "";
-    const phoneNumber = config.phone && config.phone.number ? config.phone.number : "";
+    const phoneHref = config.phone?.href || "";
+    const phoneNumber = config.phone?.number || "";
 
-    const emailHref = config.email && config.email.href ? config.email.href : "";
-    const emailValue = config.email && config.email.value ? config.email.value : "";
+    const emailHref = config.email?.href || "";
+    const emailValue = config.email?.value || "";
+
+    const normalizePhone = (value) => String(value || "").replace(/[^\d+]/g, "");
+
+    const phoneNumberClean = normalizePhone(phoneNumber);
+    const phoneHrefClean = normalizePhone(phoneHref);
 
     if (phoneHref) {
       document.querySelectorAll("[data-phone-link], a[href^='tel:']").forEach((link) => {
@@ -714,11 +719,12 @@
 
       document.querySelectorAll("a[href]").forEach((link) => {
         const href = link.getAttribute("href") || "";
+        const hrefClean = normalizePhone(href);
 
         if (
           href === phoneNumber ||
-          href.includes("555-0186") ||
-          href.includes("18885550186") ||
+          hrefClean === phoneNumberClean ||
+          hrefClean === phoneHrefClean ||
           href.startsWith("(")
         ) {
           link.setAttribute("href", phoneHref);
@@ -736,8 +742,8 @@
 
         if (
           href === emailValue ||
-          href.includes("hello@paneli.example") ||
-          href.includes("@paneli")
+          href === emailHref ||
+          href.includes("@")
         ) {
           link.setAttribute("href", emailHref);
         }
@@ -766,51 +772,58 @@
         replaceAttributes(document, replacements);
     }
 
-    function getReplacementPairs() {
-        const legacy = config.legacyReplace || {};
+  function getReplacementPairs() {
+    const legacy = config.legacyReplace || {};
 
-        const companyName = config.companyName || "";
-        const companyId = config.companyId || "";
-        const phoneNumber = config.phone?.number || "";
-        const phoneHref = config.phone?.href || "";
-        const emailValue = config.email?.value || "";
-        const emailHref = config.email?.href || "";
-        const addressFull = config.address?.full || "";
+    const companyName = config.companyName || "";
+    const companyId = config.companyId || "";
+    const phoneNumber = config.phone?.number || "";
+    const phoneHref = config.phone?.href || "";
+    const emailValue = config.email?.value || "";
+    const emailHref = config.email?.href || "";
+    const addressFull = config.address?.full || "";
 
-        const pairs = [];
+    const pairs = [];
 
-        const addPairs = (items, replacement) => {
-            if (!Array.isArray(items)) return;
+    const addPairs = (items, replacement) => {
+      if (!Array.isArray(items)) return;
 
-            items.forEach((item) => {
-                if (!item || !replacement || item === replacement) return;
-                if (String(replacement).includes(String(item))) return;
-                pairs.push([String(item), String(replacement)]);
-            });
-        };
+      items.forEach((item) => {
+        if (!item || !replacement || item === replacement) return;
+        pairs.push([String(item), String(replacement)]);
+      });
+    };
 
-        addPairs(legacy.companyNames, companyName);
-        addPairs(legacy.phones, phoneNumber);
-        addPairs(legacy.emails, emailValue);
-        addPairs(legacy.addresses, addressFull);
+    /* обычные текстовые замены */
+    addPairs(legacy.companyNames, companyName);
+    addPairs(legacy.phones, phoneNumber);
+    addPairs(legacy.emails, emailValue);
+    addPairs(legacy.addresses, addressFull);
 
-        const defaultCompanyNames = ["Paneli Provider Matching LLC", "Paneli"];
-        const defaultPhones = ["(888) 555-0186", "+18885550186"];
-        const defaultEmails = ["hello@paneli.example"];
-        const defaultAddresses = ["2184 W Cedar Frame Ave", "2184 W Cedar Frame Ave, Denver, CO 80202, USA"];
+    /* старое имя бренда */
+    addPairs(["Paneli"], companyName);
 
-        addPairs(defaultCompanyNames, companyName);
-        addPairs([companyId], companyId);
-        addPairs(defaultPhones, phoneNumber);
-        addPairs(["tel:+18885550186"], phoneHref);
-        addPairs(defaultEmails, emailValue);
-        addPairs(["mailto:hello@paneli.example"], emailHref);
-        addPairs(defaultAddresses, addressFull);
+    /* companyId заменяем отдельно, НЕ на companyName */
+    addPairs(["Paneli Provider Matching LLC"], companyId);
 
-        return pairs
-            .filter(([from, to]) => from && to && from !== to)
-            .sort((a, b) => b[0].length - a[0].length);
-    }
+    /* телефон: текст отдельно, href отдельно */
+    addPairs(["(888) 555-0186"], phoneNumber);
+    addPairs(["tel:+18885550186"], phoneHref);
+
+    /* email: текст отдельно, href отдельно */
+    addPairs(["hello@paneli.example"], emailValue);
+    addPairs(["mailto:hello@paneli.example"], emailHref);
+
+    /* адрес */
+    addPairs([
+      "2184 W Cedar Frame Ave",
+      "2184 W Cedar Frame Ave, Denver, CO 80202, USA"
+    ], addressFull);
+
+    return pairs
+      .filter(([from, to]) => from && to && from !== to)
+      .sort((a, b) => b[0].length - a[0].length);
+  }
 
     function replaceTextNodes(root, replacements) {
         if (!root) return;
