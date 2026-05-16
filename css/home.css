@@ -134,64 +134,7 @@
     font-style: normal;
 }
 
-/* ==================================================
-   HOME SERVICE GALLERY
-================================================== */
 
-.home-service-gallery {
-    position: relative;
-}
-
-.home-service-gallery .service-photo-grid {
-    grid-template-columns: 1.08fr 0.92fr 0.92fr 1.08fr;
-}
-
-.home-service-gallery .service-photo-card:nth-child(1) .service-photo-card__link,
-.home-service-gallery .service-photo-card:nth-child(4) .service-photo-card__link {
-    min-height: clamp(390px, 38vw, 530px);
-}
-
-.home-service-gallery .service-photo-card:nth-child(2) .service-photo-card__link,
-.home-service-gallery .service-photo-card:nth-child(3) .service-photo-card__link {
-    min-height: clamp(340px, 34vw, 470px);
-    margin-top: clamp(28px, 5vw, 58px);
-}
-
-.home-service-gallery__note {
-    display: grid;
-    grid-template-columns: 54px minmax(0, 1fr);
-    gap: 16px;
-    max-width: 780px;
-    margin-top: clamp(24px, 4vw, 42px);
-    border: 1px solid rgba(27, 16, 34, 0.12);
-    border-radius: 22px;
-    background: rgba(255, 255, 255, 0.74);
-    padding: 18px;
-}
-
-.home-service-gallery__note-icon {
-    display: inline-flex;
-    width: 54px;
-    height: 54px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 18px;
-    background: var(--color-accent-soft);
-    color: var(--color-accent-dark);
-}
-
-.home-service-gallery__note h3 {
-    margin-bottom: 5px;
-    color: var(--color-ink);
-    font-size: 1.08rem;
-    font-weight: 820;
-    letter-spacing: -0.03em;
-}
-
-.home-service-gallery__note p {
-    color: var(--color-ink-muted);
-    font-size: 0.94rem;
-}
 
 /* ==================================================
    PROVIDER FIT LENS
@@ -1134,5 +1077,264 @@
 
     .layer-step__arrow {
         margin-top: 8px;
+    }
+}
+
+/* ==================================================
+   HOME SERVICE GALLERY — DARK PHOTO CARDS
+================================================== */
+
+.home-service-gallery {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 14% 0%, rgba(201, 167, 242, 0.09), transparent 28rem),
+        linear-gradient(180deg, #090b18 0%, #080914 100%);
+    padding-block: clamp(42px, 5vw, 72px) clamp(54px, 6vw, 86px);
+    color: var(--color-white);
+}
+
+.home-service-gallery__top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
+    gap: clamp(28px, 5vw, 72px);
+    align-items: start;
+    margin-bottom: 28px;
+}
+
+.home-service-gallery__top h2 {
+    color: #ffffff;
+    font-size: clamp(2.5rem, 4.4vw, 4.35rem);
+    font-weight: 420;
+    line-height: 0.98;
+    letter-spacing: -0.06em;
+}
+
+.home-service-gallery__side {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 28px;
+    align-items: start;
+    justify-self: end;
+    width: min(100%, 540px);
+}
+
+.home-service-gallery__side p {
+    max-width: 260px;
+    color: rgba(248, 245, 251, 0.72);
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.home-service-gallery__button {
+    display: inline-flex;
+    min-height: 54px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(201, 167, 242, 0.55);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.015);
+    padding: 15px 28px;
+    color: #ffffff;
+    font-size: 0.92rem;
+    font-weight: 650;
+    line-height: 1;
+    transition:
+        background 180ms ease,
+        border-color 180ms ease,
+        color 180ms ease,
+        transform 180ms ease;
+}
+
+.home-service-gallery__button:hover {
+    transform: translateY(-1px);
+    border-color: rgba(201, 167, 242, 0.9);
+    background: rgba(201, 167, 242, 0.12);
+    color: var(--color-accent-hover);
+}
+
+.home-service-gallery__grid,
+.home-service-gallery .service-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.home-service-gallery .service-photo-card {
+    min-width: 0;
+}
+
+.home-service-gallery .service-photo-card__link {
+    position: relative;
+    display: grid;
+    min-height: clamp(300px, 25vw, 380px);
+    overflow: hidden;
+    border: 0;
+    border-radius: 4px;
+    background: #111322;
+    box-shadow: none;
+    isolation: isolate;
+}
+
+.home-service-gallery .service-photo-card__link img {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.01);
+    transition:
+        transform 520ms ease,
+        filter 520ms ease;
+}
+
+.home-service-gallery .service-photo-card__shade {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+        linear-gradient(180deg, rgba(7, 8, 18, 0.02) 0%, rgba(7, 8, 18, 0.26) 38%, rgba(7, 8, 18, 0.94) 100%),
+        linear-gradient(90deg, rgba(7, 8, 18, 0.28), transparent 54%);
+    transition: background 220ms ease;
+}
+
+.home-service-gallery .service-photo-card__content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    align-self: end;
+    gap: 12px;
+    padding: 24px 24px 22px;
+}
+
+.home-service-gallery .service-photo-card__kicker,
+.home-service-gallery .service-photo-card__icon {
+    display: none;
+}
+
+.home-service-gallery .service-photo-card__title {
+    max-width: 210px;
+    color: #ffffff;
+    font-size: clamp(1.55rem, 2.1vw, 2.25rem);
+    font-weight: 420;
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+}
+
+.home-service-gallery .service-photo-card__text {
+    display: block;
+    max-width: 250px;
+    max-height: none;
+    overflow: visible;
+    color: rgba(248, 245, 251, 0.86);
+    font-size: 0.92rem;
+    line-height: 1.65;
+    opacity: 1;
+}
+
+.home-service-gallery .service-photo-card__cta {
+    position: absolute;
+    right: 22px;
+    bottom: 22px;
+    display: inline-flex;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: var(--color-accent);
+    color: #130a19;
+    font-size: 0;
+    font-weight: 800;
+    transition:
+        transform 180ms ease,
+        background 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.home-service-gallery .service-photo-card__cta span {
+    display: inline-flex;
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+.home-service-gallery .service-photo-card__link:hover img {
+    transform: scale(1.055);
+    filter: brightness(1.06) saturate(1.08);
+}
+
+.home-service-gallery .service-photo-card__link:hover .service-photo-card__shade {
+    background:
+        linear-gradient(180deg, rgba(7, 8, 18, 0.04) 0%, rgba(7, 8, 18, 0.2) 36%, rgba(7, 8, 18, 0.96) 100%),
+        radial-gradient(circle at 80% 86%, rgba(201, 167, 242, 0.24), transparent 12rem);
+}
+
+.home-service-gallery .service-photo-card__link:hover .service-photo-card__cta {
+    transform: translateX(4px);
+    background: var(--color-accent-hover);
+    box-shadow: 0 0 24px rgba(201, 167, 242, 0.35);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1180px) {
+    .home-service-gallery__top {
+        grid-template-columns: 1fr;
+    }
+
+    .home-service-gallery__side {
+        justify-self: start;
+    }
+
+    .home-service-gallery__grid,
+    .home-service-gallery .service-photo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .home-service-gallery .service-photo-card__link {
+        min-height: 340px;
+    }
+}
+
+@media (max-width: 680px) {
+    .home-service-gallery {
+        padding-block: 42px 58px;
+    }
+
+    .home-service-gallery__top {
+        gap: 20px;
+        margin-bottom: 22px;
+    }
+
+    .home-service-gallery__side {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        width: 100%;
+    }
+
+    .home-service-gallery__side p {
+        max-width: none;
+    }
+
+    .home-service-gallery__button {
+        width: 100%;
+    }
+
+    .home-service-gallery__grid,
+    .home-service-gallery .service-photo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-service-gallery .service-photo-card__link {
+        min-height: 320px;
+    }
+
+    .home-service-gallery .service-photo-card__content {
+        padding: 22px;
+    }
+
+    .home-service-gallery .service-photo-card__title {
+        font-size: 1.7rem;
     }
 }
