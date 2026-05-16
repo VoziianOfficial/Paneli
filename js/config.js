@@ -121,7 +121,7 @@ window.SITE_CONFIG = {
             summary:
                 "Compare independent siding provider options for new exterior cladding projects.",
             cardText:
-                "Explore provider options for new siding projects, material scope, estimate detail, and timeline clarity.",
+                "Explore provider options for new siding projects, material scope, estimate detail.",
             heroTitle: "Compare Siding Installation Providers",
             heroText:
                 "Paneli helps homeowners explore independent siding provider options for new exterior cladding projects. Providers are independent, and homeowners should verify project details directly.",
@@ -182,7 +182,6 @@ window.SITE_CONFIG = {
                 "Are disposal and cleanup included?",
                 "What happens if hidden damage is found?",
                 "Which materials are being compared?",
-                "What warranty applies after replacement?"
             ]
         },
         {
