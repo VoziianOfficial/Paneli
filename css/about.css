@@ -562,97 +562,245 @@
 }
 
 /* ==================================================
-   COMPARISON FACTORS
+   COMPARISON FACTORS — HORIZONTAL PHOTO BAND
 ================================================== */
 
 .comparison-factors {
     position: relative;
+    isolation: isolate;
     overflow: hidden;
+    padding: clamp(38px, 5vw, 68px) 18px;
+    background:
+        linear-gradient(90deg,
+            rgba(12, 8, 20, 0.94) 0%,
+            rgba(20, 12, 30, 0.82) 45%,
+            rgba(20, 12, 30, 0.62) 100%),
+        url("../assets/images/hero-services-siding.jpg");
+    background-position: center;
+    background-size: cover;
+    color: #ffffff;
 }
 
-.comparison-factors__layout {
+.comparison-factors__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 12% 22%, rgba(201, 167, 242, 0.24), transparent 26rem),
+        radial-gradient(circle at 86% 14%, rgba(143, 200, 232, 0.16), transparent 26rem),
+        linear-gradient(180deg, rgba(8, 6, 16, 0.06), rgba(8, 6, 16, 0.38));
+    pointer-events: none;
+}
+
+.comparison-factors__inner {
     display: grid;
-    grid-template-columns: minmax(260px, 0.42fr) minmax(0, 1fr);
-    gap: clamp(30px, 6vw, 82px);
-    align-items: start;
+    grid-template-columns: minmax(300px, 0.76fr) minmax(0, 1.24fr);
+    gap: clamp(28px, 5vw, 76px);
+    align-items: center;
+    width: min(100%, 1600px);
+    min-height: 330px;
+    margin-inline: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    padding-block: clamp(28px, 4vw, 48px);
 }
 
 .comparison-factors__copy {
     display: grid;
-    gap: 18px;
+    gap: 14px;
+    max-width: 560px;
+}
+
+.comparison-factors__eyebrow {
+    color: var(--color-accent-hover);
+    font-size: 0.72rem;
+    font-weight: 850;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
 }
 
 .comparison-factors__copy h2 {
-    color: var(--color-white);
-    font-size: clamp(2rem, 4.4vw, 4.2rem);
-    font-weight: 620;
-    line-height: 1;
-    letter-spacing: -0.065em;
+    max-width: 520px;
+    color: #ffffff;
+    font-size: clamp(2.25rem, 4.1vw, 4.7rem);
+    font-weight: 460;
+    line-height: 0.96;
+    letter-spacing: -0.075em;
 }
 
 .comparison-factors__copy p {
-    color: var(--color-muted);
+    max-width: 500px;
+    color: rgba(248, 245, 251, 0.76);
+    font-size: 0.98rem;
+    line-height: 1.65;
 }
 
-.comparison-factors__copy .btn {
+.comparison-factors__link {
+    display: inline-flex;
     width: fit-content;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+    color: var(--color-secondary-hover);
+    font-size: 0.9rem;
+    font-weight: 850;
+    transition:
+        color 180ms ease,
+        gap 180ms ease;
 }
+
+.comparison-factors__link:hover {
+    gap: 14px;
+    color: var(--color-accent-hover);
+}
+
+/* right side */
 
 .comparison-factors__list {
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0;
-    border-top: 1px solid var(--color-line);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 18px;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.105), rgba(255, 255, 255, 0.045));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 }
 
 .factor-row {
+    position: relative;
     display: grid;
-    grid-template-columns: 68px minmax(0, 1fr) minmax(120px, 0.3fr);
-    gap: 18px;
-    align-items: center;
-    border-bottom: 1px solid var(--color-line);
-    padding-block: 22px;
+    grid-template-columns: 42px minmax(0, 1fr) auto;
+    gap: 14px;
+    align-items: start;
+    min-height: 132px;
+    padding: 22px;
+    border-right: 1px solid rgba(255, 255, 255, 0.14);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
     transition:
-        padding-left 180ms ease,
-        border-color 180ms ease;
+        background 180ms ease,
+        padding-left 180ms ease;
+}
+
+.factor-row:nth-child(2),
+.factor-row:nth-child(4) {
+    border-right: 0;
+}
+
+.factor-row:nth-child(3),
+.factor-row:nth-child(4) {
+    border-bottom: 0;
 }
 
 .factor-row:hover {
-    padding-left: 10px;
-    border-color: var(--color-accent-border);
+    padding-left: 28px;
+    background: rgba(201, 167, 242, 0.12);
 }
 
 .factor-row__number {
     color: var(--color-secondary-hover);
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 900;
     letter-spacing: 0.14em;
 }
 
 .factor-row h3 {
-    margin-bottom: 6px;
-    color: var(--color-white);
-    font-size: clamp(1.12rem, 2vw, 1.52rem);
-    font-weight: 660;
-    line-height: 1.16;
-    letter-spacing: -0.035em;
+    margin-bottom: 7px;
+    color: #ffffff;
+    font-size: clamp(1.05rem, 1.45vw, 1.32rem);
+    font-weight: 620;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
 }
 
 .factor-row p {
-    color: rgba(248, 245, 251, 0.68);
-    font-size: 0.94rem;
+    max-width: 330px;
+    color: rgba(248, 245, 251, 0.7);
+    font-size: 0.86rem;
+    line-height: 1.55;
 }
 
 .factor-row__tag {
-    justify-self: end;
-    border: 1px solid var(--color-line);
+    display: inline-flex;
+    min-height: 28px;
+    align-items: center;
+    border: 1px solid rgba(201, 167, 242, 0.34);
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.055);
-    padding: 8px 12px;
+    background: rgba(201, 167, 242, 0.1);
+    padding: 6px 10px;
     color: var(--color-accent-hover);
-    font-size: 0.75rem;
-    font-weight: 900;
-    letter-spacing: 0.08em;
+    font-size: 0.68rem;
+    font-weight: 850;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
+}
+
+/* TABLET */
+
+@media (max-width: 1020px) {
+    .comparison-factors__inner {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        gap: 28px;
+    }
+
+    .comparison-factors__copy {
+        max-width: 760px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 680px) {
+    .comparison-factors {
+        padding: 36px 14px 46px;
+    }
+
+    .comparison-factors__inner {
+        padding-block: 26px;
+    }
+
+    .comparison-factors__copy h2 {
+        font-size: 2.35rem;
+    }
+
+    .comparison-factors__copy p {
+        font-size: 0.92rem;
+        line-height: 1.58;
+    }
+
+    .comparison-factors__list {
+        grid-template-columns: 1fr;
+        border-radius: 16px;
+    }
+
+    .factor-row {
+        grid-template-columns: 36px minmax(0, 1fr);
+        min-height: auto;
+        padding: 18px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .factor-row:nth-child(3) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .factor-row:last-child {
+        border-bottom: 0;
+    }
+
+    .factor-row__tag {
+        grid-column: 2;
+        width: fit-content;
+        margin-top: 4px;
+    }
+
+    .factor-row:hover {
+        padding-left: 18px;
+    }
 }
 
 /* ==================================================
@@ -822,5 +970,229 @@
 
     .why-paneli__visual {
         min-height: 320px;
+    }
+}
+
+/* ==================================================
+   ABOUT DO / DO NOT — HOVER EFFECTS
+================================================== */
+
+.about-do-not__panel {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transition:
+        transform 220ms ease,
+        border-color 220ms ease,
+        background 220ms ease,
+        box-shadow 220ms ease;
+}
+
+.about-do-not__panel::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
+            rgba(201, 167, 242, 0.18),
+            transparent 34%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent);
+    opacity: 0;
+    content: "";
+    pointer-events: none;
+    transition: opacity 220ms ease;
+}
+
+.about-do-not__panel::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--gradient-accent);
+    opacity: 0;
+    content: "";
+    transition:
+        opacity 220ms ease,
+        transform 220ms ease;
+}
+
+/* line position */
+.about-do-not__panel:first-child::after {
+    left: 0;
+    transform: translateX(-6px);
+}
+
+.about-do-not__panel:last-child::after {
+    right: 0;
+    transform: translateX(6px);
+}
+
+/* panel hover */
+.about-do-not__panel:hover {
+    transform: translateY(-4px);
+    border-color: rgba(201, 167, 242, 0.32);
+    background:
+        radial-gradient(circle at 20% 0%, rgba(201, 167, 242, 0.12), transparent 22rem),
+        rgba(255, 255, 255, 0.07);
+    box-shadow: 0 24px 64px rgba(8, 3, 12, 0.24);
+}
+
+.about-do-not__panel:hover::before {
+    opacity: 1;
+}
+
+.about-do-not__panel:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* label hover */
+.about-do-not__label {
+    transition:
+        color 180ms ease,
+        letter-spacing 180ms ease;
+}
+
+.about-do-not__panel:hover .about-do-not__label {
+    color: var(--color-secondary-hover);
+    letter-spacing: 0.17em;
+}
+
+/* heading hover */
+.about-do-not__panel h3 {
+    transition:
+        color 180ms ease,
+        transform 180ms ease;
+}
+
+.about-do-not__panel:hover h3 {
+    transform: translateX(4px);
+    color: var(--color-accent-hover);
+}
+
+/* paragraph hover */
+.about-do-not__panel p {
+    transition: color 180ms ease;
+}
+
+.about-do-not__panel:hover p {
+    color: var(--color-secondary-hover);
+}
+
+/* list items hover */
+.about-do-not__panel li {
+    position: relative;
+    padding-left: 18px;
+    transition:
+        color 180ms ease,
+        transform 180ms ease;
+}
+
+.about-do-not__panel li::before {
+    position: absolute;
+    top: 0.78em;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--color-accent);
+    opacity: 0.55;
+    content: "";
+    transition:
+        opacity 180ms ease,
+        transform 180ms ease,
+        background 180ms ease;
+}
+
+.about-do-not__panel li:hover {
+    transform: translateX(6px);
+    color: var(--color-secondary-hover);
+}
+
+.about-do-not__panel li:hover::before {
+    transform: scale(1.35);
+    opacity: 1;
+    background: var(--color-secondary-hover);
+}
+
+/* softer motion on mobile */
+@media (max-width: 680px) {
+    .about-do-not__panel:hover {
+        transform: none;
+    }
+
+    .about-do-not__panel:hover h3 {
+        transform: none;
+    }
+
+    .about-do-not__panel li:hover {
+        transform: translateX(3px);
+    }
+}
+
+/* ==================================================
+   ABOUT DO / DO NOT — DARK HOVER ON LIGHT SECTION
+================================================== */
+
+.section--light .about-do-not__panel {
+    transition:
+        transform 220ms ease,
+        background 220ms ease,
+        border-color 220ms ease,
+        box-shadow 220ms ease,
+        color 220ms ease;
+}
+
+.section--light .about-do-not__panel:hover {
+    transform: translateY(-4px);
+    border-color: rgba(201, 167, 242, 0.42);
+    background:
+        radial-gradient(circle at 18% 0%, rgba(201, 167, 242, 0.22), transparent 24rem),
+        radial-gradient(circle at 88% 18%, rgba(143, 200, 232, 0.16), transparent 22rem),
+        linear-gradient(145deg, #25152e 0%, #1b1022 100%);
+    box-shadow:
+        0 24px 64px rgba(27, 16, 34, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* label */
+.section--light .about-do-not__panel:hover .about-do-not__label {
+    color: var(--color-secondary-hover);
+}
+
+/* heading */
+.section--light .about-do-not__panel:hover h3 {
+    color: #ffffff;
+}
+
+/* paragraph */
+.section--light .about-do-not__panel:hover p {
+    color: rgba(248, 245, 251, 0.78);
+}
+
+/* list */
+.section--light .about-do-not__panel:hover li {
+    color: rgba(248, 245, 251, 0.76);
+}
+
+.section--light .about-do-not__panel:hover li:hover {
+    color: #ffffff;
+}
+
+/* bullets */
+.section--light .about-do-not__panel:hover li::before {
+    background: var(--color-accent-hover);
+    opacity: 0.9;
+}
+
+/* side accent line */
+.section--light .about-do-not__panel:hover::after {
+    opacity: 1;
+}
+
+/* mobile — без сильного прыжка */
+@media (max-width: 680px) {
+    .section--light .about-do-not__panel:hover {
+        transform: none;
     }
 }
