@@ -2009,3 +2009,83 @@
         font-size: 2.55rem;
     }
 }
+
+/* ==================================================
+   CHOICE FACTORS — HOVER GLARE EFFECT
+================================================== */
+
+.choice-factors__grid>*,
+.choice-factor {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* сам блик */
+.choice-factors__grid>*::after,
+.choice-factor::after {
+    position: absolute;
+    top: -60%;
+    left: -85%;
+    z-index: 1;
+    width: 62%;
+    height: 220%;
+    transform: rotate(24deg) translateX(0);
+    background:
+        linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.06) 28%,
+            rgba(255, 255, 255, 0.32) 48%,
+            rgba(255, 255, 255, 0.12) 62%,
+            transparent 100%);
+    content: "";
+    pointer-events: none;
+    opacity: 0;
+    transition:
+        transform 620ms ease,
+        opacity 180ms ease;
+}
+
+/* чтобы текст был выше блика */
+.choice-factors__grid>*>*,
+.choice-factor>* {
+    position: relative;
+    z-index: 2;
+}
+
+/* hover */
+.choice-factors__grid>*:hover::after,
+.choice-factor:hover::after {
+    transform: rotate(24deg) translateX(360%);
+    opacity: 1;
+}
+
+.choice-factors__grid>*:hover,
+.choice-factor:hover {
+    border-color: rgba(94, 168, 207, 0.42);
+    box-shadow:
+        0 22px 58px rgba(5, 3, 12, 0.34),
+        0 0 26px rgba(94, 168, 207, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* маленькое свечение сверху */
+.choice-factors__grid>*:hover::before,
+.choice-factor:hover::before {
+    box-shadow: 0 0 18px rgba(94, 168, 207, 0.32);
+}
+
+/* mobile — мягче */
+@media (max-width: 680px) {
+
+    .choice-factors__grid>*::after,
+    .choice-factor::after {
+        width: 72%;
+        height: 200%;
+    }
+
+    .choice-factors__grid>*:hover::after,
+    .choice-factor:hover::after {
+        transform: rotate(24deg) translateX(300%);
+    }
+}
