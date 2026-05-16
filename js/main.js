@@ -719,62 +719,115 @@
 
     
 
-    function renderFaqBlocks() {
-        document.querySelectorAll("[data-faq-list]").forEach((mount) => {
-            const key = mount.dataset.faqList || "general";
-            const items = config.faq[key] || config.faq.general || [];
+	    function renderFaqBlocks() {
+	        document.querySelectorAll("[data-faq-list]").forEach((mount) => {
+	            const key = mount.dataset.faqList || "general";
+	            const items = config.faq[key] || config.faq.general || [];
 
-            mount.innerHTML = items
-                .map(
-                    (item, index) => `
-            <article class="faq-item">
-              <h3 class="faq-item__heading">
-                <button
-                  class="faq-button"
-                  type="button"
-                  aria-expanded="false"
-                  aria-controls="faq-panel-${key}-${index}"
-                >
-                  <span class="faq-button__number">${String(index + 1).padStart(2, "0")}</span>
-                  <span class="faq-button__text">${escapeHtml(item.question)}</span>
-                  <span class="faq-button__icon" aria-hidden="true">+</span>
-                </button>
-              </h3>
+	            const renderItem = (item, index) => `
+	            <article class="faq-item">
+	              <h3 class="faq-item__heading">
+	                <button
+	                  class="faq-button"
+	                  type="button"
+	                  aria-expanded="false"
+	                  aria-controls="faq-panel-${key}-${index}"
+	                >
+	                  <span class="faq-button__number">${String(index + 1).padStart(2, "0")}</span>
+	                  <span class="faq-button__text">${escapeHtml(item.question)}</span>
+	                  <span class="faq-button__icon" aria-hidden="true">+</span>
+	                </button>
+	              </h3>
 
-              <div
-                class="faq-panel"
-                id="faq-panel-${key}-${index}"
-                hidden
-              >
-                <p>${escapeHtml(item.answer)}</p>
-              </div>
-            </article>
-          `
-                )
-                .join("");
+	              <div
+	                class="faq-panel"
+	                id="faq-panel-${key}-${index}"
+	                hidden
+	              >
+	                <p>${escapeHtml(item.answer)}</p>
+	              </div>
+	            </article>
+	          `;
+
+	            if (key === "services") {
+	                const leftColumnItems = items
+	                    .map((item, index) => ({ item, index }))
+	                    .filter(({ index }) => index % 2 === 0)
+	                    .map(({ item, index }) => renderItem(item, index))
+	                    .join("");
+
+	                const rightColumnItems = items
+	                    .map((item, index) => ({ item, index }))
+	                    .filter(({ index }) => index % 2 === 1)
+	                    .map(({ item, index }) => renderItem(item, index))
+	                    .join("");
+
+	                mount.innerHTML = `
+	                    <div class="services-faq__column">
+	                        ${leftColumnItems}
+	                    </div>
+	                    <div class="services-faq__column">
+	                        ${rightColumnItems}
+	                    </div>
+	                `;
+
+	                return;
+	            }
+
+	            mount.innerHTML = items.map(renderItem).join("");
+	        });
+	    }
+
+  function initFaqAccordions() {
+    const faqLists = document.querySelectorAll(".faq-list");
+
+    faqLists.forEach((list, listIndex) => {
+      const items = list.querySelectorAll(".faq-item");
+
+      items.forEach((item, itemIndex) => {
+        const button = item.querySelector(".faq-button");
+        const panel = item.querySelector(".faq-panel");
+
+        if (!button || !panel) return;
+
+        const panelId = `faq-panel-${listIndex}-${itemIndex}`;
+        const buttonId = `faq-button-${listIndex}-${itemIndex}`;
+
+        button.id = buttonId;
+        button.setAttribute("type", "button");
+        button.setAttribute("aria-controls", panelId);
+        button.setAttribute("aria-expanded", "false");
+
+        panel.id = panelId;
+        panel.setAttribute("role", "region");
+        panel.setAttribute("aria-labelledby", buttonId);
+        panel.hidden = true;
+
+        button.addEventListener("click", () => {
+          const isOpen = button.getAttribute("aria-expanded") === "true";
+
+          /* закрываем только элементы внутри этого FAQ-list */
+          items.forEach((otherItem) => {
+            const otherButton = otherItem.querySelector(".faq-button");
+            const otherPanel = otherItem.querySelector(".faq-panel");
+
+            if (!otherButton || !otherPanel) return;
+
+            otherButton.setAttribute("aria-expanded", "false");
+            otherPanel.hidden = true;
+            otherItem.classList.remove("is-open");
+          });
+
+          /* открываем только текущий */
+          if (!isOpen) {
+            button.setAttribute("aria-expanded", "true");
+            panel.hidden = false;
+            item.classList.add("is-open");
+          }
         });
-    }
-
-    function initFaqAccordions() {
-        document.querySelectorAll(".faq-button").forEach((button) => {
-            button.addEventListener("click", () => {
-                const panelId = button.getAttribute("aria-controls");
-                const panel = document.getElementById(panelId);
-
-                if (!panel) return;
-
-                const isOpen = button.getAttribute("aria-expanded") === "true";
-
-                button.setAttribute("aria-expanded", String(!isOpen));
-                panel.hidden = isOpen;
-
-                const icon = button.querySelector(".faq-button__icon");
-                if (icon) {
-                    icon.textContent = isOpen ? "+" : "−";
-                }
-            });
-        });
-    }
+      });
+    });
+  }
 
     function renderFaqSchema() {
         document.querySelectorAll("[data-faq-schema]").forEach((mount) => {

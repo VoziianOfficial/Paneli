@@ -2893,3 +2893,81 @@ article:hover [class*="-row__number"] {
         transform: none;
     }
 }
+
+
+
+.services-faq,
+.services-faq *,
+.provider-fit,
+.provider-fit *,
+.material-mood,
+.material-mood * {
+    font-family: var(--font-main) !important;
+}
+
+/* SERVICES FAQ */
+.services-faq .faq-button__number {
+    font-family: var(--font-main) !important;
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+}
+
+.services-faq .faq-button__text {
+    font-family: var(--font-main) !important;
+    font-size: clamp(0.98rem, 1.2vw, 1.1rem);
+    font-weight: 760;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+}
+
+.services-faq .faq-panel {
+    font-family: var(--font-main) !important;
+    font-size: 0.9rem;
+    line-height: 1.58;
+}
+
+/* PROVIDER FIT */
+.provider-fit h2,
+.provider-fit h3,
+.provider-fit p,
+.provider-fit span,
+.provider-fit strong,
+.provider-fit b {
+    font-family: var(--font-main) !important;
+}
+
+.provider-fit h2 {
+    font-weight: 520;
+    letter-spacing: -0.065em;
+}
+
+.provider-fit h3 {
+    font-weight: 650;
+    letter-spacing: -0.04em;
+}
+
+/* MATERIAL MOOD */
+.material-mood__top span,
+.material-mood__top p,
+.material-panel h3,
+.material-panel span,
+.material-panel p {
+    font-family: var(--font-main) !important;
+}
+
+.material-panel h3 {
+    font-weight: 560;
+    line-height: 0.98;
+    letter-spacing: -0.065em;
+}
+
+.material-mood__top span {
+    font-weight: 850;
+    letter-spacing: 0.18em;
+}
+
+.material-mood__top p {
+    font-weight: 500;
+    letter-spacing: -0.015em;
+}
